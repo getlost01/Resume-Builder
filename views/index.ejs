@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Login</title>
+</head>
+
+<body>
+  <section class="area-login">
+    <% if(locals.value){ %> 
+    <h1><%= locals.value %>  </h1>
+    <% } %> 
+    <div class="login">
+      <div>
+        <img src="https://img.icons8.com/fluency/240/000000/google-logo.png" />
+      </div>
+      <form action="/auth/google" method="post">
+        <input type="submit" value="Enter" />
+      </form>
+      <p>SignIn With <a href="http://google.com" target="_blank" rel="noopener noreferrer"> Google </a></p>
+    </div>
+  </section>
+</body>
+
+</html>
+</body>
+</html>

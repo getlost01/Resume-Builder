@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" 
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="dark">
+    <nav class="sidebar close">
+        <header>
+          <div class="image-text">
+            <span class="image">
+              <img src="<%= locals.picture %>" alt="...">
+            </span>
+      
+            <div class="text logo-text">
+              <span class="name"> <%= locals.given_name %>  </span>
+              <span class="profession"><%= locals.email %></span>
+            </div>
+          </div>
+          <i class="fa-solid fa-chevron-left toggle"></i>
+        </header>
+      
+        <div class="menu-bar">
+          <div class="menu">
+      
+            <ul class="menu-links">
+              <li class="nav-link">
+                <a href="#">
+                  <i class="fa-solid fa-house icon"></i>
+                  <span class="text nav-text">Dashboard</span>
+                </a>
+              </li>
+      
+              <li class="nav-link">
+                <a href="#">
+                  <i class="fa-solid fa-bell icon"></i>
+                  <span class="text nav-text">Notifications</span>
+                </a>
+              </li>
+      
+              <li class="nav-link">
+                <a href="#">
+                  <i class="fa-solid fa-chart-bar icon"></i>
+                  <span class="text nav-text">Analytics</span>
+                </a>
+              </li>
+   
+            </ul>
+          </div>
+      
+          <div class="bottom-content">
+            <li class="">
+              <a href="/logout">
+                <i class="fa-solid fa-right-from-bracket icon"></i>
+                <span class="text nav-text">Logout</span>
+              </a>
+            </li>
+      
+            <li class="mode">
+              <div class="sun-moon">
+                <i class="fa-solid fa-sun icon sun"></i>
+                <i class="fa-solid fa-moon icon moon"></i>
+              </div>
+              <span class="mode-text text">Dark mode</span>
+      
+              <div class="toggle-switch">
+                <span class="switch"></span>
+              </div>
+            </li>
+      
+          </div>
+        </div>
+      
+      </nav>
+      
+      <section class="home">
+        <div class="text">Dashboard</div>
+        <div class="textEmpty">
+          <div>
+          <h3>🧐</h3>
+          <h5>Nothing To Show</h5>
+          </div>
+        </div>
+      </section>
+      <script src="script.js"></script>
+</body>
+</html>
