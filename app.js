@@ -51,7 +51,6 @@ app.get('/logout',(req,res)=>{
         value : "Sucessful Logout / Login again"
     });
 })
-
 function isloggedIn(req,res,next){
     req.user?next():res.sendStatus(401);
 }
