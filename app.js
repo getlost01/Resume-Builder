@@ -52,7 +52,7 @@ app.get('/logout',(req,res)=>{
     });
 })
 function isloggedIn(req,res,next){
-    req.user?next():res.sendStatus(401);
+    req.user?next():res.sendStatus(401).render('error');
 }
 
 app.get('/dashboard',isloggedIn,(req,res)=>{
