@@ -35,7 +35,7 @@ app.post('/auth/google',
 
 app.get( '/google/callback',
     passport.authenticate( 'google', {
-        successRedirect: '/protected',
+        successRedirect: '/dashboard',
         failureRedirect: '/auth/google/failure'
 }));
 app.get('/auth/google/failure',(req,res)=>{
@@ -55,7 +55,7 @@ function isloggedIn(req,res,next){
     req.user?next():res.sendStatus(401);
 }
 
-app.get('/protected',isloggedIn,(req,res)=>{
+app.get('/dashboard',isloggedIn,(req,res)=>{
     // res.send(`Hello ${req.user.displayName} <a href='/logout'>Logout</a>`);
     res.render('dashboard',{
         email : req.user.email,
