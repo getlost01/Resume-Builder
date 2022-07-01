@@ -1,0 +1,198 @@
+ :root {
+    --body-color: #f4f7ff;
+    --box-color: #fff;
+    --primary-color: #474747;
+    --sidebar-color: #fff;
+    --primary-color-light: rgb(255, 255, 255);
+    --special-color: #0d6efd;
+    --text-color: #000000;
+    --text-color1: #ffffff;
+    --sidebar-color: #f4f7ff;
+    --toggle-color: #d0d0d0;
+   /* ====== Transition ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+}
+ body.dark {
+    --body-color: #404040;
+    --box-color: #1b1b1b;
+    --primary-color: rgb(0, 0, 0);
+    --text-color: #ffffff;
+    --text-color1: #ffffff;
+    --sidebar-color: #242526;
+    --primary-color-light: #3a3b3c;
+    --toggle-color: #fff;
+}
+::-webkit-scrollbar{
+    width: 8px;
+}
+::-webkit-scrollbar-track{
+    background: transparent;
+}
+::-webkit-scrollbar-thumb{
+    background: var(--special-color);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background-color: rgb(255, 85, 0);
+}
+.formSec ::-webkit-calendar-picker-indicator {
+    background-color: white;
+    border-radius: 5px;
+}
+.formSec  body{
+    color: var(--text-color);
+    background-color: var(--body-color);
+}
+.formSec h1,h2,h3,h4,h5,h6,input,.row,.col,input{
+    margin:0;
+    padding:0;
+}
+.formSec  h4{
+    text-align: center;
+    background-color: var(--primary-color);
+    padding: 10px;
+    color: var(--text-color1);
+    border: 1px solid #888;
+    border-top: 0px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.formSec .titleBox{
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    user-select: none;
+}
+
+.formSec .titleBox h6{
+    padding: 8px 10px;
+    border-radius: 20px;
+    background-color: var(--special-color);
+    width:max-content;
+    color: white;
+    font-size: 14px;
+}
+.formSec .titleBox h6 i{
+    background-color: #ffffff;
+    color: #000000;
+    padding: 5px 6px;
+    border-radius: 50%;
+    margin-left: 10px;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgb(0, 0, 0);
+    transition: 0.3s all ease;
+}
+.formSec .titleBox h6 i:hover{
+    transform: scale(1.1);
+}
+.formSec .titleBox h6 i:active{
+    transform: scale(0.95);
+}
+.formSec label{
+    user-select: none;
+}
+.formSec input,textarea{
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+    color: var(--text-color);
+    background-color: var(--box-color);
+}
+.formSec input::placeholder,.formSec textarea::placeholder{
+    color: #888;
+}
+.formSec input[type="submit"]
+{
+    width: 150px;
+    margin: 10px 0 20px 0;
+    padding: 6px 12px;
+    font-size: 16px;
+}
+.formSec input[type="checkbox"]
+{
+    width: auto;
+    cursor: pointer;
+}
+.formSec label span{
+    color: rgb(255, 80, 80);
+}
+.formSec .inputStyle{
+    padding: 0 15px;
+}
+.formSec .inputStyle label{
+    position:relative;
+    top: 10px;
+    font-size: 14px;
+    padding: 0 8px;
+    left: 10px;
+    font-weight: 500;
+    background-color: var(--box-color);
+    border-radius: 10px;
+}
+.formSec .inputStyle input,.formSec .inputStyle textarea{
+    border-radius: 5px;
+    border: 1px solid #888;
+}
+
+.formSec .addDetail{
+    border-bottom: 1px solid #888;
+    padding: 15px 20px;
+    background-color: var(--primary-color);
+    display: flex; 
+    font-size: 16px;
+    user-select: none;
+    /* text-shadow: 1px 1px #888; */
+    justify-content: space-between; 
+    color: var(--text-color1);
+}
+.formSec .box-section{
+    /* border: 1px solid #888; */
+    margin: 30px 0;
+    padding-bottom: 20px ;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: var(--box-color);
+    box-shadow: 0px 2px 5px #888;
+}
+.formSec input:invalid,.formSec textarea:invalid{
+    border-right: 4px solid rgb(228, 66, 38);
+}
+.formSec input:valid,.formSec textarea:valid{
+    border-right: 4px solid rgb(37, 194, 68);
+}
+.formSec input[type="submit"]:valid,.formSec input[type="submit"]:invalid{
+    border: 1px solid #888;
+}
+.formSec .btnAdd{
+    padding: 4px 15px;
+    font-size: 15px;
+    font-weight: bolder;
+}
+.formSec input[type="submit"],.formSec .btnAdd{
+    user-select: none;
+    cursor: pointer;
+    outline: 0;
+    color: #fff;
+    background-color: var(--special-color);
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 5px ;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.formSec input[type="submit"]:hover ,.formSec .btnAdd:hover {
+    color: #fff;
+    background-color: #0083e1;
+    border:1px solid #ffffff;
+    transform: scale(1.04);
+}
+.formSec input[type="submit"]:active ,.formSec .btnAdd:active{
+    transform: scale(0.96);
+}

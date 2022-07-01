@@ -5,12 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" 
-    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" 
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    	<!-- CSS only -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+	integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" 
+	crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" 
+	ntegrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" 
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="form.css">
+
 </head>
-<body class="dark">
+<body class="">
     <nav class="sidebar close">
         <header>
           <div class="image-text">
@@ -23,7 +29,7 @@
               <span class="profession"><%= locals.email %></span>
             </div>
           </div>
-          <i class="fa-solid fa-chevron-left toggle"></i>
+          <i class="fa-solid fa-angles-right toggle"></i>
         </header>
       
         <div class="menu-bar">
@@ -33,7 +39,7 @@
               <li class="nav-link">
                 <a href="#">
                   <i class="fa-solid fa-house icon"></i>
-                  <span class="text nav-text">Dashboard</span>
+                  <span class="text nav-text">Update Details</span>
                 </a>
               </li>
       
@@ -80,14 +86,326 @@
       </nav>
       
       <section class="home">
-        <div class="text">Dashboard</div>
-        <div class="textEmpty">
-          <div>
-          <h3>🧐</h3>
-          <h5>Nothing To Show</h5>
-          </div>
+      
+        
+
+        <div class="row formSec">
+          <h4 class="">Data Form</h4>
+          <form action="/submit-form" class="d-flex justify-content-center" method="post">
+      
+            <div class="col-12 col-md-10 my-2">
+              <section class="row box-section">
+                <div class="col-12 addDetail">
+                <h5>Basic Details</h5>
+                </div>
+      
+                <div class="col-12 inputStyle col-md-6">
+                <label for="name"> Name<span>*</span> </label>
+                <input  type="text" placeholder="Enter your name" name="name" required id="name">
+                </div>
+      
+                <div class="col-12 inputStyle col-md-6">
+                <label for="email"> Email<span>*</span> </label>
+                <input   type="email" placeholder="Enter Email" name="email" required id="email">
+                  </div>
+      
+                <div class="col-12 inputStyle col-md-6">
+                <label for="photo"> Your photo<span>*</span> </label>
+                <input   type="url" placeholder="https://image.com/664c5" name="photo" required id="photo">
+                  </div>
+      
+                <div class="col-12 inputStyle col-md-6">
+                <label for="address"> Your home address<span>*</span> </label>
+                <input   type="text" placeholder="12/10 civil lines" name="address" required id="address">
+                  </div>
+      
+                <div class="col-12 inputStyle col-md-6">
+                <label for="city"> Home city<span>*</span> </label>
+                <input   type="text" placeholder="Kanpur" name="city" required id="city">
+                  </div>
+      
+                <div class="col-12 inputStyle col-md-6">
+                <label for="mobile"> Your mobile no.<span>*</span> </label>
+                <input   type="tel" placeholder="930xxxxxxx" name="mobile" required id="mobile">
+                  </div>
+      
+                <div class="col-12 inputStyle col-md-6">
+                <label for="dob"> Date of Birth<span>*</span> </label>
+                <input   type="date" value="2002-01-01" name="dob" required id="dob">
+                  </div>
+      
+                <div class="col-12 inputStyle col-md-6">
+                <label for="resume"> Your resume<span>*</span> </label>
+                <input   type="url" placeholder="https://image.com/664c5" name="resume" required id="resume">
+                  </div>
+      
+              </section>
+      
+      
+              <section class="row box-section">
+                <div class="col-12 addDetail">
+                <h5>Education</h5>
+                </div>
+      
+                <div class="titleBox"><h6>Graduation college details</div>
+      
+                  <div class="col-12 inputStyle col-md-6">
+                  <label for="college"> College Name<span>*</span>  </label>
+                  <input  type="text" placeholder="UIET Kanpur" value="UIET CSJM University Kanpur" name="college" required id="college">
+                  </div>
+      
+                  <div class="col-12 inputStyle col-md-6">
+                  <label for="course"> Course Name<span>*</span>  </label>
+                  <input   type="text" placeholder="B-Tech - C.S.E" name="course" required id="course">
+                  </div>
+      
+                  <div class="col-12 inputStyle col-md-6">
+                  <label for="passingYear"> Year of completion<span>*</span> </label>
+                  <input  type="date" value="2024-06-01" name="passingYear" required id="passingYear">
+                  </div>
+      
+                  <div class="col-12 inputStyle col-md-6">
+                  <label for="rollno"> Roll Number<span>*</span>  </label>
+                  <input  type="text" placeholder="eg: 001" name="rollno" required id="rollno">
+                  </div>
+      
+                  <div class="col-12 inputStyle col-md-6">
+                  <label for="cgpi"> Latest cgpi<span>*</span>  </label>
+                  <input   type="text" placeholder="8.76" name="cgpi" required id="cgpi">
+                  </div>
+      
+                  <div class="col-12 inputStyle col-md-6">
+                  <label for="achievements"> Achievements<span>( if any )</span> </label>
+                  <textarea name="achievements"  class="" rows="1" placeholder="i) Get 1 rank in 4th sem ii) Win hackathon in college."></textarea>
+                  </div>
+      
+              <div class="titleBox"><h6>High school details</div>
+      
+                  <div class="col-12 inputStyle col-md-6">
+                  <label for="school"> School Name<span>*</span>  </label>
+                  <input  type="text" placeholder="DPS School" name="school" required id="school">
+                  </div>
+      
+                  <div class="col-12 inputStyle col-md-6">
+                  <label for="courseS"> 12th Course field<span>*</span>  </label>
+                  <input   type="text" placeholder="PCM" name="courseS" required id="courseS">
+                  </div>
+      
+                  <div class="col-12 inputStyle col-md-6">
+                  <label for="passingYearS"> Year of completion<span>*</span> </label>
+                  <input  type="date" value="2019-06-01" name="passingYearS" required id="passingYearS">
+                  </div>
+      
+                  <div class="col-12 inputStyle col-md-6">
+                  <label for="cgpiS">  Cgpa / Per<span>*</span>  </label>
+                  <input   type="text" placeholder="8.76 / 87.6%" name="cgpiS" required id="cgpiS">
+                  </div>
+      
+              </section>
+      
+              <section class="row box-section">
+                <div class="col-12 addDetail">
+                <h5>Social Presence</h5>
+                </div>
+      
+                <div class="col-12 inputStyle col-md-6">
+                  <label for="linkedin"> Linkedin<span>( Url ) </span> </label>
+                  <input   type="url" required placeholder="https://www.linkedin.com/in/.." name="linkedin" id="linkedin">
+                </div>
+      
+                <div class="col-12 inputStyle col-md-6">
+                  <label for="instagram"> Instagram<span>( Url ) </span> </label>
+                  <input   type="url" required placeholder="https://www.instagram.com/.." name="instagram" id="instagram">
+                </div>
+      
+                <div class="col-12 inputStyle col-md-6">
+                  <label for="twitter"> twitter<span>( Url ) </span> </label>
+                  <input   type="url" placeholder="https://www.twitter.com/.." name="twitter" id="twitter">
+                </div>
+      
+                <div class="col-12 inputStyle col-md-6">
+                  <label for="facebook"> Facebook<span>( Url ) </span> </label>
+                  <input   type="url" placeholder="https://www.facebook.com/people/.." name="facebook" id="facebook">
+                </div>
+      
+                <div class="col-12 inputStyle col-md-6">
+                  <label for="medium"> Medium<span>( Url ) </span> </label>
+                  <input   type="url" placeholder="https://www.user.medium.com/" name="medium" id="medium">
+                </div>
+      
+                <div class="col-12 inputStyle col-md-6">
+                  <label for="github"> Github<span>( Url ) </span> </label>
+                  <input   type="url" placeholder="https://www.github.com/.." name="github"  id="github">
+                </div>
+      
+                <div class="col-12 inputStyle col-md-6">
+                  <label for="hackerrank"> Hackerrank<span>( Url ) </span> </label>
+                  <input   type="url" placeholder="https://www.hackerrank.com/.." name="hackerrank"  id="hackerrank">
+                </div>
+      
+                <div class="col-12 inputStyle col-md-6">
+                  <label for="codeforces"> Codeforces<span>( Url ) </span> </label>
+                  <input   type="url" placeholder="https://codeforces.com/profile/.." name="codeforces"  id="codeforces">
+                </div>
+      
+                <div class="col-12 inputStyle col-md-6">
+                  <label for="codechef"> Codechef<span>( Url ) </span> </label>
+                  <input   type="url" placeholder="https://www.codechef.com/user/.." name="codechef"  id="codechef">
+                </div>
+      
+                <div class="col-12 inputStyle col-md-6">
+                  <label for="atcoder"> Atcoder<span>( Url ) </span> </label>
+                  <input   type="url" placeholder="https://atcoder.jp/users/.." name="atcoder"  id="atcoder">
+                </div>
+      
+                <div class="col-12 inputStyle col-md-6">
+                  <label for="stopstalk"> stopstalk<span>( Url ) </span> </label>
+                  <input   type="url" placeholder="https://www.stopstalk.com/user/profile/.." name="stopstalk"  id="stopstalk">
+                </div>
+      
+                <div class="col-12 inputStyle col-md-6">
+                  <label for="portfolio"> Personal portfolio<span>( Url ) </span> </label>
+                  <input   type="url" placeholder="eg: https://portfolio.user.me" name="portfolio"  id="portfolio">
+                </div>
+      
+              </section>
+      
+              <section class="row box-section">
+                <div class="col-12 addDetail">
+                <h5>About you</h5>
+                </div>
+      
+                <div class="col-12 inputStyle">
+                  <label for="bio"> Short Bio<span>*</span> </label>
+                  <input   type="text" placeholder="I am a full stack web development enthusiasm." name="bio" required id="bio">
+                </div>
+      
+                <div class="col-12 inputStyle">
+                  <label for="brief"> Breif introduction<span>*</span> </label>
+                  <textarea name="brief"  class="" rows="1" required placeholder="i) Get 1 rank in 4th sem ii) Win hackathon in college."></textarea>
+                </div>
+      
+              </section>
+      
+              <section class="row box-section">
+                <div class="col-12 addDetail">
+                <h5>Working experience / volunteer</h5>
+                <div class="btnAdd" id="addExp"> <i class="fa-solid fa-plus"></i> Add </div>
+                </div>
+                
+                <div class="col-12" id="expSec">
+      
+      
+                </div>
+                
+              </section>
+      
+              <section class="row box-section">
+                <div class="col-12 addDetail">
+                <h5>Projects</h5>
+                <div class="btnAdd" id="addPro"> <i class="fa-solid fa-plus"></i> Add </div>
+                </div>	
+      
+                
+                <div class="col-12" id="projectSec">		
+          
+                </div>
+                
+              </section>
+      
+      
+              <section class="row box-section">
+                <div class="col-12 addDetail">
+                <h5>Skills</h5>
+                </div>	
+      
+                <div class="col-12" id="skillSec">		
+          
+                  <div class="row d-flex justify-content-center">
+                    <div class="col-12 inputStyle">
+                      <label for="skills"> Skills </label>
+                      <textarea name="skills"  class="" rows="1" required placeholder="Please write skill separated by commas: HTML , CSS , JavaScript , Java"></textarea>
+                    </div>
+                  </div>
+      
+                </div>
+                
+              </section>
+      
+      
+      
+              <section class="row box-section">
+                <div class="col-12 addDetail">
+                <h5>Certificates</h5>
+                <div class="btnAdd" id="addCer"> <i class="fa-solid fa-plus"></i> Add </div>
+                </div>	
+      
+                
+                <div class="col-12" id="certifySec">		
+          
+                  
+      
+                </div>
+                
+              </section>
+      
+              <section class="row box-section">
+                <div class="col-12 addDetail">
+                  <h5>Achievements / Honors</h5>
+                  <div class="btnAdd" id="addHon"> <i class="fa-solid fa-plus"></i> Add </div>
+                </div>	
+      
+                
+                <div class="col-12" id="honorSec">	
+      
+                </div>
+                
+              </section>
+      
+              <section class="row box-section">
+                <div class="col-12 addDetail">
+                  <h5>Other Info</h5>
+                  <div class="btnAdd" id="addInfo"> <i class="fa-solid fa-plus"></i> Add </div>
+                </div>
+      
+                <div class="col-12" id="infoSec">		
+                            
+      
+                </div>
+                
+              </section>
+      
+              <div class="row">
+                <div class="col-12 d-flex my-1 justify-content-center">
+                  <input class="mx-1" type="checkbox" name="okcheck" id="okcheck">
+                  I have reviewed all details and I want to submit
+                </div>
+                <div class="colo-12 d-flex justify-content-center">
+                  <input type="submit" value="Submit" disabled id="submitBTN">
+                </div>
+              </div>
+      
+            </div>
+      
+          </form>
+        </div>
+
+                                  <!-- testing -->
+                                  <form action="/submit-form" class="d-flex justify-content-center pb-4" method="post">
+                                    <button type="submit" class="btn btn-primary" >Testing Purpose Button</button>
+                                  </form>
+                                <!-- testing -->
+
+
         </div>
       </section>
+
+
+      	<!-- JavaScript Bundle with Popper -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" 
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" 
+      crossorigin="anonymous"></script>
       <script src="script.js"></script>
+      <script src="form.js"></script>
 </body>
 </html>

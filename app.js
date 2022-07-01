@@ -8,7 +8,7 @@ const auth = require('./auth');
 require('dotenv').config()
 
 const app = express();
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs')
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -62,4 +62,15 @@ app.get('/dashboard',isloggedIn,(req,res)=>{
         picture : req.user.picture ,
         given_name : req.user.given_name
     });
+})
+
+app.get('/test',(req,res,next)=>{
+    var idAddress = req.connection.remoteAddress;
+    console.log(idAddress);
+    res.render('form');
+})
+
+app.post('/submit-form',(req,res,next)=>{
+    // console.log(req.body);
+    res.render('template');
 })
