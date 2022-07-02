@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/login.css" />
+  <title>Login</title>
+</head>
+
+<body>
+  <section class="area-login">
+    <h1>It seem like you are a new user</h1>
+    <div class="login">
+    
+      <div>
+        <img src="<%=locals.picture%>" />
+      </div>
+
+      <form action="/dashboard" method="post">
+        <input type="text" name="username" required placeholder="Create username" autofocus />
+        <input type="text" name="name" required value="<%=locals.given_name%>" style="display: none;" />
+        <input type="text" name="email" required value="<%=locals.email%>" style="display: none;" />
+         <select name="college" required>
+            <option value="">Select Graduation College</option>
+            <option value="UIET CSJM University Kanpur">UIET CSJM University Kanpur</option>
+         </select>
+         <select name="course" required>
+            <option value="">Select Course Name</option>
+            <option value="B-Tech">B-Tech</option>
+            <option value="BCA">BCA</option>
+         </select>
+         <select name="yearOfGrad" required>
+            <option value="">Select Year Of Graduation</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+         </select>
+
+         <p> User can't change these once after submission.</p>
+        <input type="submit" value="Enter" />
+      </form>
+    </div>
+  </section>
+</body>
+
+</html>

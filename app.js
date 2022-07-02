@@ -1,21 +1,22 @@
 const express = require('express');
 const createHttpError = require('http-errors');
-const passport = require('passport');
-const session = require('express-session');
 const router = express.Router()
 const path = require('path');
-const auth = require('./auth');
-require('dotenv').config()
-
 const app = express();
+require('dotenv').config();
+
+
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs')
-app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-app.use(express.Router());
-app.use(session({secret:"cats"}))
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(express.json())
+
+const connectdb=require('./config/db')
+connectdb();
+const User = require('./models/user')
+
+app.use('/',require('./config/passport'))
+
 
 app.listen(process.env.PORT || 9990,function(){
     console.log("➡️ APP is listening on port %d in %s mode 👍",  this.address().port, app.settings.env)
@@ -28,19 +29,7 @@ app.get('/',(req,res,next)=>{
     });
 })
 
-app.post('/auth/google',
-  passport.authenticate('google', { scope:
-      [ 'email', 'profile' ] }
-));
 
-app.get( '/google/callback',
-    passport.authenticate( 'google', {
-        successRedirect: '/dashboard',
-        failureRedirect: '/auth/google/failure'
-}));
-app.get('/auth/google/failure',(req,res)=>{
-    res.send('something went wrong');
-})
 app.get('/logout',(req,res)=>{
     req.logOut(false,(err)=>{
         if(err)
@@ -51,18 +40,44 @@ app.get('/logout',(req,res)=>{
         value : "Sucessful Logout / Login again"
     });
 })
+
+
 function isloggedIn(req,res,next){
     req.user?next():res.render('error');
 }
 
-app.get('/dashboard',isloggedIn,(req,res)=>{
-    // res.send(`Hello ${req.user.displayName} <a href='/logout'>Logout</a>`);
-    res.render('dashboard',{
-        email : req.user.email,
-        picture : req.user.picture ,
-        given_name : req.user.given_name
-    });
+app.get('/dashboard',isloggedIn,async(req,res)=>{
+    try{
+    const userExists =  await User.findOne({ email:req.user.email});
+    console.log(userExists);
+    if(userExists){
+        res.render('dashboard',{
+            email : req.user.email,
+            picture : req.user.picture,
+            given_name : req.user.given_name
+        });
+        return;
+    }
+        res.render('firstlogin',{
+            email : req.user.email,
+            picture : req.user.picture,
+            given_name : req.user.given_name
+        });
+    }catch(error){
+        next(error);
+    }
 })
+
+
+
+
+
+
+
+
+
+
+
 
 app.get('/test',(req,res,next)=>{
     var idAddress = req.connection.remoteAddress;
@@ -73,4 +88,31 @@ app.get('/test',(req,res,next)=>{
 app.post('/submit-form',(req,res,next)=>{
     // console.log(req.body);
     res.render('template');
+})
+app.get('/submit-form',(req,res,next)=>{
+    // console.log(req.body);
+    res.render('template');
+})
+
+
+
+
+
+app.post('/dashboard',async(req,res)=>{
+    try{
+    const user = new User({ 
+        username: req.body.username, 
+        email: req.body.email, 
+        name: req.body.name,
+        college: req.body.college, 
+        branch: "-", 
+        yearOfGrad: req.body.yearOfGrad,
+        jsonData: "-"
+    })
+    console.log(user)
+    const result = await user.save()
+    res.redirect("/");
+    }catch(error){
+        next(error);
+}
 })
