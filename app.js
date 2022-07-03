@@ -49,19 +49,24 @@ function isloggedIn(req,res,next){
 app.get('/dashboard',isloggedIn,async(req,res)=>{
     try{
     const userExists =  await User.findOne({ email:req.user.email});
-    console.log(userExists);
     if(userExists){
+        var emptyData = null;
+        if(userExists.jsonData ==="{}")
+        emptyData = "yes";
         res.render('dashboard',{
-            email : req.user.email,
+            email : userExists.email,
+            college: userExists.college,
             picture : req.user.picture,
-            given_name : req.user.given_name
+            given_name : req.user.given_name,
+            jsonData: JSON.parse(userExists.jsonData),
+            emptyData
         });
         return;
-    }
+     }
         res.render('firstlogin',{
             email : req.user.email,
             picture : req.user.picture,
-            given_name : req.user.given_name
+            name : req.user.given_name
         });
     }catch(error){
         next(error);
@@ -79,23 +84,32 @@ app.get('/dashboard',isloggedIn,async(req,res)=>{
 
 
 
-app.get('/test',(req,res,next)=>{
-    var idAddress = req.connection.remoteAddress;
-    console.log(idAddress);
-    res.render('form');
+
+app.post('/submit-form',async(req,res)=>{
+    try{
+    const userExists =  await User.findOne({ email:req.user.email});
+    if(!userExists){
+        res.render('error');
+        return;
+     }
+     await userExists.updateOne({ name: req.body.name });
+     await userExists.updateOne({ jsonData:  JSON.stringify(req.body)});
+
+     res.redirect('/dashboard/preview');
+    }catch(error){
+        next(error);
+    }
 })
 
-app.post('/submit-form',(req,res,next)=>{
-    // console.log(req.body);
-    res.render('template');
+app.get('/dashboard/preview',isloggedIn,async(req,res,next)=>{
+    try{
+    const user = await User.findOne({ email:req.user.email});
+    var userData = JSON.parse(user.jsonData)
+    res.render('template',{ userData });
+    }catch(error){
+        next(error);
+    }
 })
-app.get('/submit-form',(req,res,next)=>{
-    // console.log(req.body);
-    res.render('template');
-})
-
-
-
 
 
 app.post('/dashboard',async(req,res)=>{
@@ -107,11 +121,10 @@ app.post('/dashboard',async(req,res)=>{
         college: req.body.college, 
         branch: "-", 
         yearOfGrad: req.body.yearOfGrad,
-        jsonData: "-"
+        jsonData: "{}"
     })
-    console.log(user)
     const result = await user.save()
-    res.redirect("/");
+    res.redirect("/dashboard");
     }catch(error){
         next(error);
 }

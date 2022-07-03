@@ -13,7 +13,7 @@ h1,h2,h3,h4,h5,h6,p,input,.row,.col,input{
     --dark: #28292c;
     --body-color: #f1f6f6;
     --box-color: #fff;
-    --primary-color: #474747;
+    --primary-color: #282828;
     --special-color: #0d6efd;
     --primary-color-light: #f6f5ff;
     --text-color: #000000;
@@ -25,6 +25,19 @@ h1,h2,h3,h4,h5,h6,p,input,.row,.col,input{
     --tran-03: all 0.3s ease;
     --tran-04: all 0.3s ease;
     --tran-05: all 0.3s ease;
+}
+::-webkit-scrollbar{
+    width: 8px;
+}
+::-webkit-scrollbar-track{
+    background: transparent;
+}
+::-webkit-scrollbar-thumb{
+    background: var(--special-color);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background-color: rgb(255, 85, 0);
 }
 body{
     background-color: var(--body-color);

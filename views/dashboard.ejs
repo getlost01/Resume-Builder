@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="/css/form.css">
 
 </head>
-<body class="">
+<body class="dark">
     <nav class="sidebar close">
         <header>
           <div class="image-text">
@@ -91,7 +91,11 @@
 
         <div class="row formSec">
           <h4 class="">Data Form</h4>
-          <form action="/submit-form" class="d-flex justify-content-center" method="post">
+          <% if(locals.emptyData) {%> 
+          <h2 style="background-color:#ffc7c7; border-bottom: 1px solid #ff9393; color:#dd0000;font-size:16px; text-align: center; padding: 5px;font-weight: 400;"><i class="fa-solid fa-triangle-exclamation px-2"></i> Please complete your profile details</h2>
+          <%}%>
+          <h2 style="background-color:#c7dcff;border-bottom: 1px solid #7db1ff; color:#0057d9;font-size:16px; text-align: center; padding: 5px;font-weight: 400;"><i class="fa-solid fa-circle-info"></i> Automatic save not possible, so user have to update data.</h2>
+          <form action="/submit-form" class="d-flex justify-content-center" method="post" target="_blank">
       
             <div class="col-12 col-md-10 my-2">
               <section class="row box-section">
@@ -101,42 +105,42 @@
       
                 <div class="col-12 inputStyle col-md-6">
                 <label for="name"> Name<span>*</span> </label>
-                <input  type="text" placeholder="Enter your name" name="name" required id="name">
+                <input  type="text" placeholder="Enter your name" name="name" value="<%if(locals.emptyData){%><%=locals.given_name%><%}else{%><%=locals.jsonData.name%><%}%>" required id="name">
                 </div>
       
                 <div class="col-12 inputStyle col-md-6">
                 <label for="email"> Email<span>*</span> </label>
-                <input   type="email" placeholder="Enter Email" name="email" required id="email">
+                <input   type="email" placeholder="Enter Email" name="email" value="<%=locals.email%>" readonly required id="email">
                   </div>
       
                 <div class="col-12 inputStyle col-md-6">
                 <label for="photo"> Your photo<span>*</span> </label>
-                <input   type="url" placeholder="https://image.com/664c5" name="photo" required id="photo">
+                <input   type="url" placeholder="https://image.com/664c5" name="photo" value="<%if(!locals.emptyData){%><%=locals.jsonData.photo%><%}%>" required id="photo">
                   </div>
       
                 <div class="col-12 inputStyle col-md-6">
                 <label for="address"> Your home address<span>*</span> </label>
-                <input   type="text" placeholder="12/10 civil lines" name="address" required id="address">
+                <input   type="text" placeholder="12/10 civil lines" name="address" value="<%if(!locals.emptyData){%><%=locals.jsonData.address%><%}%>" required id="address">
                   </div>
       
                 <div class="col-12 inputStyle col-md-6">
                 <label for="city"> Home city<span>*</span> </label>
-                <input   type="text" placeholder="Kanpur" name="city" required id="city">
+                <input   type="text" placeholder="Kanpur" name="city" value="<%if(!locals.emptyData){%><%=locals.jsonData.city%><%}%>" required id="city">
                   </div>
       
                 <div class="col-12 inputStyle col-md-6">
                 <label for="mobile"> Your mobile no.<span>*</span> </label>
-                <input   type="tel" placeholder="930xxxxxxx" name="mobile" required id="mobile">
+                <input   type="tel" placeholder="930xxxxxxx" name="mobile" value="<%if(!locals.emptyData){%><%=locals.jsonData.mobile%><%}%>" required id="mobile">
                   </div>
       
                 <div class="col-12 inputStyle col-md-6">
                 <label for="dob"> Date of Birth<span>*</span> </label>
-                <input   type="date" value="2002-01-01" name="dob" required id="dob">
+                <input   type="date" value="2002-01-01" name="dob" value="<%if(!locals.emptyData){%><%=locals.jsonData.dob%><%}%>" required id="dob">
                   </div>
       
                 <div class="col-12 inputStyle col-md-6">
                 <label for="resume"> Your resume<span>*</span> </label>
-                <input   type="url" placeholder="https://image.com/664c5" name="resume" required id="resume">
+                <input   type="url" placeholder="https://image.com/664c5" name="resume" value="<%if(!locals.emptyData){%><%=locals.jsonData.resume%><%}%>" required id="resume">
                   </div>
       
               </section>
@@ -151,54 +155,54 @@
       
                   <div class="col-12 inputStyle col-md-6">
                   <label for="college"> College Name<span>*</span>  </label>
-                  <input  type="text" placeholder="UIET Kanpur" value="UIET CSJM University Kanpur" name="college" required id="college">
+                  <input  type="text" placeholder="UIET Kanpur" value="UIET CSJM University Kanpur" value="<%=locals.college%>" readonly name="college" required id="college">
                   </div>
       
                   <div class="col-12 inputStyle col-md-6">
                   <label for="course"> Course Name<span>*</span>  </label>
-                  <input   type="text" placeholder="B-Tech - C.S.E" name="course" required id="course">
+                  <input   type="text" placeholder="B-Tech - C.S.E" name="course" value="<%if(!locals.emptyData){%><%=locals.jsonData.course%><%}%>" required id="course">
                   </div>
       
                   <div class="col-12 inputStyle col-md-6">
                   <label for="passingYear"> Year of completion<span>*</span> </label>
-                  <input  type="date" value="2024-06-01" name="passingYear" required id="passingYear">
+                  <input  type="date" value="2024-06-01" name="passingYear" value="<%if(!locals.emptyData){%><%=locals.jsonData.passingYear%><%}%>" required id="passingYear">
                   </div>
       
                   <div class="col-12 inputStyle col-md-6">
                   <label for="rollno"> Roll Number<span>*</span>  </label>
-                  <input  type="text" placeholder="eg: 001" name="rollno" required id="rollno">
+                  <input  type="text" placeholder="eg: 001" name="rollno" value="<%if(!locals.emptyData){%><%=locals.jsonData.rollno%><%}%>" required id="rollno">
                   </div>
       
                   <div class="col-12 inputStyle col-md-6">
                   <label for="cgpi"> Latest cgpi<span>*</span>  </label>
-                  <input   type="text" placeholder="8.76" name="cgpi" required id="cgpi">
+                  <input   type="text" placeholder="8.76" name="cgpi" value="<%if(!locals.emptyData){%><%=locals.jsonData.cgpi%><%}%>" required id="cgpi">
                   </div>
       
                   <div class="col-12 inputStyle col-md-6">
                   <label for="achievements"> Achievements<span>( if any )</span> </label>
-                  <textarea name="achievements"  class="" rows="1" placeholder="i) Get 1 rank in 4th sem ii) Win hackathon in college."></textarea>
+                  <textarea name="achievements" class="" rows="1" placeholder="i) Get 1 rank in 4th sem ii) Win hackathon in college."><%if(!locals.emptyData){%><%=locals.jsonData.achievements%><%}%></textarea>
                   </div>
       
               <div class="titleBox"><h6>High school details</div>
       
                   <div class="col-12 inputStyle col-md-6">
                   <label for="school"> School Name<span>*</span>  </label>
-                  <input  type="text" placeholder="DPS School" name="school" required id="school">
+                  <input  type="text" placeholder="DPS School" name="school" value="<%if(!locals.emptyData){%><%=locals.jsonData.school%><%}%>" required id="school">
                   </div>
       
                   <div class="col-12 inputStyle col-md-6">
                   <label for="courseS"> 12th Course field<span>*</span>  </label>
-                  <input   type="text" placeholder="PCM" name="courseS" required id="courseS">
+                  <input   type="text" placeholder="PCM" name="courseS" value="<%if(!locals.emptyData){%><%=locals.jsonData.courseS%><%}%>" required id="courseS">
                   </div>
       
                   <div class="col-12 inputStyle col-md-6">
                   <label for="passingYearS"> Year of completion<span>*</span> </label>
-                  <input  type="date" value="2019-06-01" name="passingYearS" required id="passingYearS">
+                  <input  type="date" value="2019-06-01" name="passingYearS" value="<%if(!locals.emptyData){%><%=locals.jsonData.passingYearS%><%}%>" required id="passingYearS">
                   </div>
       
                   <div class="col-12 inputStyle col-md-6">
                   <label for="cgpiS">  Cgpa / Per<span>*</span>  </label>
-                  <input   type="text" placeholder="8.76 / 87.6%" name="cgpiS" required id="cgpiS">
+                  <input   type="text" placeholder="8.76 / 87.6%" name="cgpiS" value="<%if(!locals.emptyData){%><%=locals.jsonData.cgpiS%><%}%>" required id="cgpiS">
                   </div>
       
               </section>
@@ -210,62 +214,67 @@
       
                 <div class="col-12 inputStyle col-md-6">
                   <label for="linkedin"> Linkedin<span>( Url ) </span> </label>
-                  <input   type="url" required placeholder="https://www.linkedin.com/in/.." name="linkedin" id="linkedin">
+                  <input   type="url" required placeholder="https://www.linkedin.com/in/.." value="<%if(!locals.emptyData){%><%=locals.jsonData.linkedin%><%}%>" name="linkedin" id="linkedin">
                 </div>
       
                 <div class="col-12 inputStyle col-md-6">
                   <label for="instagram"> Instagram<span>( Url ) </span> </label>
-                  <input   type="url" required placeholder="https://www.instagram.com/.." name="instagram" id="instagram">
+                  <input   type="url" required placeholder="https://www.instagram.com/.." value="<%if(!locals.emptyData){%><%=locals.jsonData.instagram%><%}%>" name="instagram" id="instagram">
                 </div>
       
                 <div class="col-12 inputStyle col-md-6">
-                  <label for="twitter"> twitter<span>( Url ) </span> </label>
-                  <input   type="url" placeholder="https://www.twitter.com/.." name="twitter" id="twitter">
+                  <label for="twitter"> Twitter<span>( Url ) </span> </label>
+                  <input   type="url" placeholder="https://www.twitter.com/.." value="<%if(!locals.emptyData){%><%=locals.jsonData.twitter%><%}%>" name="twitter" id="twitter">
                 </div>
       
                 <div class="col-12 inputStyle col-md-6">
                   <label for="facebook"> Facebook<span>( Url ) </span> </label>
-                  <input   type="url" placeholder="https://www.facebook.com/people/.." name="facebook" id="facebook">
+                  <input   type="url" placeholder="https://www.facebook.com/people/.." value="<%if(!locals.emptyData){%><%=locals.jsonData.facebook%><%}%>" name="facebook" id="facebook">
                 </div>
       
                 <div class="col-12 inputStyle col-md-6">
                   <label for="medium"> Medium<span>( Url ) </span> </label>
-                  <input   type="url" placeholder="https://www.user.medium.com/" name="medium" id="medium">
+                  <input   type="url" placeholder="https://www.user.medium.com/" value="<%if(!locals.emptyData){%><%=locals.jsonData.medium%><%}%>" name="medium" id="medium">
                 </div>
       
                 <div class="col-12 inputStyle col-md-6">
                   <label for="github"> Github<span>( Url ) </span> </label>
-                  <input   type="url" placeholder="https://www.github.com/.." name="github"  id="github">
+                  <input   type="url" placeholder="https://www.github.com/.." value="<%if(!locals.emptyData){%><%=locals.jsonData.github%><%}%>" name="github"  id="github">
                 </div>
       
                 <div class="col-12 inputStyle col-md-6">
                   <label for="hackerrank"> Hackerrank<span>( Url ) </span> </label>
-                  <input   type="url" placeholder="https://www.hackerrank.com/.." name="hackerrank"  id="hackerrank">
+                  <input   type="url" placeholder="https://www.hackerrank.com/.." value="<%if(!locals.emptyData){%><%=locals.jsonData.hackerrank%><%}%>" name="hackerrank"  id="hackerrank">
                 </div>
       
                 <div class="col-12 inputStyle col-md-6">
                   <label for="codeforces"> Codeforces<span>( Url ) </span> </label>
-                  <input   type="url" placeholder="https://codeforces.com/profile/.." name="codeforces"  id="codeforces">
+                  <input   type="url" placeholder="https://codeforces.com/profile/.." value="<%if(!locals.emptyData){%><%=locals.jsonData.codeforces%><%}%>" name="codeforces"  id="codeforces">
                 </div>
       
                 <div class="col-12 inputStyle col-md-6">
                   <label for="codechef"> Codechef<span>( Url ) </span> </label>
-                  <input   type="url" placeholder="https://www.codechef.com/user/.." name="codechef"  id="codechef">
+                  <input   type="url" placeholder="https://www.codechef.com/user/.." value="<%if(!locals.emptyData){%><%=locals.jsonData.codechef%><%}%>" name="codechef"  id="codechef">
                 </div>
       
                 <div class="col-12 inputStyle col-md-6">
                   <label for="atcoder"> Atcoder<span>( Url ) </span> </label>
-                  <input   type="url" placeholder="https://atcoder.jp/users/.." name="atcoder"  id="atcoder">
+                  <input   type="url" placeholder="https://atcoder.jp/users/.." value="<%if(!locals.emptyData){%><%=locals.jsonData.atcoder%><%}%>" name="atcoder"  id="atcoder">
                 </div>
       
                 <div class="col-12 inputStyle col-md-6">
-                  <label for="stopstalk"> stopstalk<span>( Url ) </span> </label>
-                  <input   type="url" placeholder="https://www.stopstalk.com/user/profile/.." name="stopstalk"  id="stopstalk">
+                  <label for="stopstalk"> Stopstalk<span>( Url ) </span> </label>
+                  <input   type="url" placeholder="https://www.stopstalk.com/user/profile/.." value="<%if(!locals.emptyData){%><%=locals.jsonData.stopstalk%><%}%>" name="stopstalk"  id="stopstalk">
+                </div>
+
+                <div class="col-12 inputStyle col-md-6">
+                  <label for="leetcode"> Leetcode<span>( Url ) </span> </label>
+                  <input   type="url" placeholder="https://www.leetcode.com/.." value="<%if(!locals.emptyData){%><%=locals.jsonData.leetcode%><%}%>" name="leetcode"  id="leetcode">
                 </div>
       
                 <div class="col-12 inputStyle col-md-6">
                   <label for="portfolio"> Personal portfolio<span>( Url ) </span> </label>
-                  <input   type="url" placeholder="eg: https://portfolio.user.me" name="portfolio"  id="portfolio">
+                  <input   type="url" placeholder="eg: https://portfolio.user.me" value="<%if(!locals.emptyData){%><%=locals.jsonData.portfolio%><%}%>" name="portfolio"  id="portfolio">
                 </div>
       
               </section>
@@ -277,12 +286,12 @@
       
                 <div class="col-12 inputStyle">
                   <label for="bio"> Short Bio<span>*</span> </label>
-                  <input   type="text" placeholder="I am a full stack web development enthusiasm." name="bio" required id="bio">
+                  <input   type="text" placeholder="I am a full stack web development enthusiasm." value="<%if(!locals.emptyData){%><%=locals.jsonData.bio%><%}%>"  name="bio" required id="bio">
                 </div>
       
                 <div class="col-12 inputStyle">
                   <label for="brief"> Breif introduction<span>*</span> </label>
-                  <textarea name="brief"  class="" rows="1" required placeholder="i) Get 1 rank in 4th sem ii) Win hackathon in college."></textarea>
+                  <textarea  class="" rows="1" required placeholder="Hi! My name is abcd xyz. I'm very dedicated and hardworking person who always thrives to work on end to end products." name="brief" ><%if(!locals.emptyData){%><%=locals.jsonData.brief%><%}%></textarea>
                 </div>
       
               </section>
@@ -293,8 +302,45 @@
                 <div class="btnAdd" id="addExp"> <i class="fa-solid fa-plus"></i>Add </div>
                 </div>
                 
+                <% var deleteid = 0 %> 
+
                 <div class="col-12" id="expSec">
-      
+                  <%if(!locals.emptyData){%>
+                    <%if(!locals.jsonData.titleExp){%>
+
+                    <%}else{%>
+
+                   <% var isArr = Array.isArray(locals.jsonData.titleExp), len = (isArr? locals.jsonData.titleExp.length : 1) %>
+                    <% for(var i=0; i< len ; i++)  {%>
+                    <div class="row" id="deleteRow<%= ++deleteid %>">
+                      <div class="titleBox"><h6>Experience Detail<i class="fa-solid fa-trash-can" id="deleteBtn<%= deleteid %>" ></i></h6></div>
+                      <div class="col-12 inputStyle col-md-6">
+                          <label for="titleExp"> Firm Name </label>
+                          <input   type="text" required placeholder="xyz firm" name="titleExp" value="<%=(isArr? locals.jsonData.titleExp[i] : locals.jsonData.titleExp )%>" >
+                      </div>
+                      <div class="col-12 inputStyle col-md-6">
+                          <label for="designationExp"> Designation </label>
+                          <input   type="text" required placeholder="SDE intern" name="designationExp" value="<%=(isArr? locals.jsonData.designationExp[i] : locals.jsonData.designationExp )%>">
+                      </div>
+                      <div class="col-12 inputStyle col-md-6">
+                          <label for="timeExp"> Time Span </label>
+                          <input   type="text" required placeholder="22 june 2022 - present" name="timeExp" value="<%=(isArr? locals.jsonData.timeExp[i] : locals.jsonData.timeExp )%>" >
+                      </div>
+                      <div class="col-12 inputStyle col-md-6">
+                          <label for="techExp"> Technology experience </label>
+                          <input   type="text" required placeholder="nodeJS , reactjs , mongoose , JavaScript" name="techExp" value="<%=(isArr? locals.jsonData.techExp[i] : locals.jsonData.techExp )%>" >
+                      </div>
+                      <div class="col-12 inputStyle col-md-6">
+                          <label for="descrpExp"> Description </label>
+                          <textarea required rows="1" placeholder="My work is to improve efficiency of backend server and implement new features." name="descrpExp"><%=(isArr? locals.jsonData.descrpExp[i] : locals.jsonData.descrpExp )%>"</textarea>  
+                      </div>
+                      <div class="col-12 inputStyle col-md-6">
+                          <label for="linkExp"> Any link to share </label>
+                          <input   type="url" placeholder="eg: https://My-Work-Is-This.com" name="linkExp" value="<%=(isArr? locals.jsonData.linkExp[i] : locals.jsonData.linkExp )%>">
+                      </div>
+                   </div>
+
+                  <% }}} %> 
       
                 </div>
                 
@@ -305,9 +351,45 @@
                 <h5>Projects</h5>
                 <div class="btnAdd" id="addPro"> <i class="fa-solid fa-plus"></i>Add </div>
                 </div>	
-      
-                
-                <div class="col-12" id="projectSec">		
+                <div class="col-12" id="projectSec">
+
+                <%if(!locals.emptyData){%>
+                  <%if(!locals.jsonData.titlePro){%>
+
+                  <%}else{%>
+
+                 <% var isArr = Array.isArray(locals.jsonData.titlePro), len = (isArr? locals.jsonData.titlePro.length : 1) %>
+                <% for(var i=0; i< len ; i++)  {%>
+
+                  <div class="row" id="deleteRow<%= ++deleteid %>">
+                      <div class="titleBox"><h6>Project <i class="fa-solid fa-trash-can" id="deleteBtn<%= deleteid %>"></i></h6></div>
+                      <div class="col-12 inputStyle col-md-6">
+                          <label for="titlePro"> Project Name </label>
+                          <input   type="text" required placeholder="CP Calender" name="titlePro" value="<%=(isArr? locals.jsonData.titlePro[i] : locals.jsonData.titlePro )%>">
+                      </div>
+                      <div class="col-12 inputStyle col-md-6">
+                          <label for="timePro"> Time Span </label>
+                          <input   type="text" required placeholder="30 jan 2022 - 24 feb 2022" name="timePro" value="<%=(isArr? locals.jsonData.timePro[i] : locals.jsonData.timePro )%>">
+                      </div>
+                      <div class="col-12 inputStyle col-md-6">
+                          <label for="techPro"> Technology Used </label>
+                          <input   type="text" required placeholder="nodeJS , reactjs , mongoose , JavaScript" name="techPro" value="<%=(isArr? locals.jsonData.techPro[i] : locals.jsonData.techPro )%>">
+                      </div>
+                      <div class="col-12 inputStyle col-md-6">
+                          <label for="descrpPro"> Description </label>
+                          <input   type="text" required placeholder="show details related upcoming CP Contests" name="descrpPro" value="<%=(isArr? locals.jsonData.descrpPro[i] : locals.jsonData.descrpPro )%>">
+                      </div>
+                      <div class="col-12 inputStyle col-md-6">
+                          <label for="linkPro"> Any link to share </label>
+                          <input   type="url" placeholder="eg: https://My-Is-My-Project.com" name="linkPro" value="<%=(isArr? locals.jsonData.linkPro[i] : locals.jsonData.linkPro )%>">
+                      </div>
+                      <div class="col-12 inputStyle col-md-6">
+                          <label for="gitPro"> Github Repo </label>
+                          <input   type="url" placeholder="eg: https://github.com/getlost01/cp-contest-calender" name="gitPro" value="<%=(isArr? locals.jsonData.gitPro[i] : locals.jsonData.gitPro )%>" >
+                      </div>
+                </div>
+
+                <% }}} %> 		
           
                 </div>
                 
@@ -320,11 +402,11 @@
                 </div>	
       
                 <div class="col-12" id="skillSec">		
-          
+
                   <div class="row d-flex justify-content-center">
                     <div class="col-12 inputStyle">
                       <label for="skills"> Skills </label>
-                      <textarea name="skills"  class="" rows="1" required placeholder="Please write skill separated by commas: HTML , CSS , JavaScript , Java"></textarea>
+                      <textarea name="skills"  class="" rows="1" required placeholder="Please write skill separated by commas: HTML , CSS , JavaScript , Java"><%if(!locals.emptyData){%><%=locals.jsonData.skills%><%}%></textarea>
                     </div>
                   </div>
       
@@ -343,8 +425,35 @@
                 
                 <div class="col-12" id="certifySec">		
           
+                  <%if(!locals.emptyData){%>
+                    <%if(!locals.jsonData.titleCer){%>
+  
+                    <%}else{%>
+  
+                   <% var isArr = Array.isArray(locals.jsonData.titleCer), len = (isArr? locals.jsonData.titleCer.length : 1) %>
+                  <% for(var i=0; i< len ; i++)  {%>
+
+                    <div class="row" id="deleteRow<%= ++deleteid %>">
+                      <div class="titleBox"><h6>Certificate <i class="fa-solid fa-trash-can" id="deleteBtn<%= deleteid %>"></i></h6></div>
+                      <div class="col-12 inputStyle col-md-6">
+                          <label for="titleCer"> Certificate Name </label>
+                          <input   type="text" required placeholder="Front-End Web UI Frameworks and Tools" name="titleCer" value="<%=(isArr? locals.jsonData.titleCer[i] : locals.jsonData.titleCer )%>">
+                      </div>
+                      <div class="col-12 inputStyle col-md-6">
+                          <label for="issCer"> Issued By </label>
+                          <input   type="text" required placeholder="Coursera" name="issCer" value="<%=(isArr? locals.jsonData.issCer[i] : locals.jsonData.issCer )%>"> 
+                      </div>
+                      <div class="col-12 inputStyle col-md-6">
+                          <label for="descrpCer"> Description </label>
+                          <input   type="text" placeholder="For learning front end development." name="descrpCer" value="<%=(isArr? locals.jsonData.descrpCer[i] : locals.jsonData.descrpCer )%>">
+                      </div>
+                      <div class="col-12 inputStyle col-md-6">
+                          <label for="linkCer"> Certificate Link </label>
+                          <input   type="url" required placeholder="eg: https://My-Is-My-Certificate.com" name="linkCer" value="<%=(isArr? locals.jsonData.linkCer[i] : locals.jsonData.linkCer )%>">
+                      </div>
+                  </div>
                   
-      
+                  <% }}} %> 	
                 </div>
                 
               </section>
@@ -354,10 +463,30 @@
                   <h5>Achievements / Honors</h5>
                   <div class="btnAdd" id="addHon"> <i class="fa-solid fa-plus"></i>Add </div>
                 </div>	
-      
-                
                 <div class="col-12" id="honorSec">	
-      
+                  <%if(!locals.emptyData){%>
+                    <%if(!locals.jsonData.descrpHon){%>
+  
+                    <%}else{%>
+  
+                   <% var isArr = Array.isArray(locals.jsonData.descrpHon), len = (isArr? locals.jsonData.descrpHon.length : 1) %>
+                  <% for(var i=0; i< len ; i++)  {%>
+
+                    <div class="row" id="deleteRow<%= ++deleteid %>" >
+
+                      <div class="titleBox"><h6>Achievement <i class="fa-solid fa-trash-can" id="deleteBtn<%= deleteid %>"></i></h6></div>
+                      <div class="col-12 inputStyle col-md-6">
+                          <label for="descrpHon"> Description </label>
+                          <input type="text" required placeholder="In xyz contest I got 28 rank out of 1600+ students." name="descrpHon" value="<%=(isArr? locals.jsonData.descrpHon[i] : locals.jsonData.descrpHon )%>">
+                      </div>
+                      <div class="col-12 inputStyle col-md-6">
+                          <label for="linkHon"> Any link to share </label>
+                          <input type="url" placeholder="eg: https://My-Is-My-Honor.com" name="linkHon" value="<%=(isArr? locals.jsonData.linkHon[i] : locals.jsonData.linkHon )%>">
+                      </div>
+          
+                  </div>
+
+                  <% }}} %> 
                 </div>
                 
               </section>
@@ -369,19 +498,44 @@
                 </div>
       
                 <div class="col-12" id="infoSec">		
-                            
+                    
+                  <%if(!locals.emptyData){%>
+                    <%if(!locals.jsonData.descrpInfo){%>
+  
+                    <%}else{%>
+  
+                   <% var isArr = Array.isArray(locals.jsonData.descrpInfo), len = (isArr? locals.jsonData.descrpInfo.length : 1) %>
+                  <% for(var i=0; i< len ; i++)  {%>
       
+                    <div class="row" id="deleteRow<%= ++deleteid %>">
+                      <div class="titleBox"><h6>Info<i class="fa-solid fa-trash-can" id="deleteBtn<%= deleteid %>"></i></h6></div>
+                      
+                      <div class="col-12 inputStyle col-md-6">
+                          <label for="descrpInfo"> Description </label>
+                          <input   type="text" required placeholder="I have create 50+ digital art / posters for social media." name="descrpInfo" value="<%=(isArr? locals.jsonData.descrpInfo[i] : locals.jsonData.descrpInfo )%>">
+                      </div>
+                      <div class="col-12 inputStyle col-md-6">
+                          <label for="linkInfo"> Any link to share </label>
+                          <input   type="url" placeholder="eg: https://My-Is-My-Art.com" name="linkInfo" value="<%=(isArr? locals.jsonData.linkInfo[i] : locals.jsonData.linkInfo )%>">
+                      </div>
+                  </div>
+
+                    <% }}} %> 
                 </div>
                 
               </section>
       
+              <!-- ----------------------section input-------------------------- -->
+              <input type="number" id="deleteBtnData" value="<%= deleteid %>" style="display:none;">
+              <!-- ----------------------section input-------------------------- -->
+
               <div class="row">
                 <div class="col-12 d-flex my-1 justify-content-center" style="font-size: 13px;">
                   <input class="mx-1" type="checkbox" name="okcheck" id="okcheck">
                   I have reviewed all details and I want to submit
                 </div>
                 <div class="colo-12 d-flex justify-content-center">
-                  <input type="submit" value="Submit" disabled id="submitBTN">
+                  <input type="submit" value="Update & Preview" disabled id="submitBTN">
                 </div>
               </div>
       
@@ -389,12 +543,6 @@
       
           </form>
         </div>
-
-                                  <!-- testing -->
-                                  <form action="/submit-form" class="d-flex justify-content-center pb-4" method="post">
-                                    <button type="submit" class="btn btn-primary" >Testing Purpose Button</button>
-                                  </form>
-                                <!-- testing -->
 
 
         </div>

@@ -10,11 +10,21 @@ body {
     background-color: var(--body-color);
     transition: var(--tran-05);
 }
-::selection {
-    background-color: rgb(255, 85, 0);
-    color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
+.dark ::selection {
+    background-color: #e4e4e4;
+    color: #323232;
+    text-shadow: 0 0 1px #b0b0b0;
+    font-family:monospace;
 }
+::selection {
+    background-color: #161616;
+    color: #e4e4e4;
+    text-shadow: 0 0 1px #b0b0b0;
+    font-family:monospace;
+}
+textarea::-webkit-scrollbar-thumb{
+    display: none;
+  }
 /* ===== Sidebar ===== */
 ul{
     padding: 0;

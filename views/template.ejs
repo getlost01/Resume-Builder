@@ -21,10 +21,14 @@
 
         <div class="col-12 header">
             <div class="d-flex justify-content-center">
+                <% if(locals.userData.photo!=""){%>
+                <img src="<%= locals.userData.photo %>" alt="" style="width:100px; border-radius: 50%; background-color:aliceblue; border: 2px solid rgb(230, 230, 230);">
+                <%}else{%>
                 <img src="https://www.pngmart.com/files/21/Account-User-PNG-Transparent.png" alt="" style="width:100px; border-radius: 50%; background-color:aliceblue; border: 2px solid rgb(230, 230, 230);">
+                <% } %> 
             </div>
             <div>
-                <h3 class="text-center">Aagam Jain</h3>
+                <h3 class="text-center"><%= locals.userData.name %></h3>
             </div>
             <div>
                 <h6 class="text-center">I'm passionated SDE aspirant.</h6>
@@ -277,20 +281,20 @@
                     <div class="h4Bottom"></div>
                     <div class="social row">
                         <div class="media p-2 col-12 col-sm-6 col-lg-12">
-                            <a href="" target="_blank" rel="noopener noreferrer"><img src="/images/linkedin.png" alt=""></a>
-                            <a href="" target="_blank" rel="noopener noreferrer"><img src="/images/instagram.png" alt=""></a>
-                            <a href="" target="_blank" rel="noopener noreferrer"><img src="/images/facebook.png" alt=""></a>
-                            <a href="" target="_blank" rel="noopener noreferrer"><img src="/images/twitter.png" alt=""></a>
-                            <a href="" target="_blank" rel="noopener noreferrer"><img src="/images/medium.png" alt=""></a>
-                            <a href="" target="_blank" rel="noopener noreferrer"><img src="/images/github.png" alt=""></a>
+                            <a href="" target="_blank" rel="noopener noreferrer"><img src="https://lh5.googleusercontent.com/2ObkNTLl4H9F3zyoKwej3hz8l1pp4wR_ctPM12pRytcSW2RTUD1Ki12AKmTR2WqDP6CLfLaX3yIU7XAzrOHLil2SirdecgWdiLnQ-KODcQOrVJXP1S0MrHdjHUzCjgv_iHECCR51tzTCqoxIzA" alt=""></a>
+                            <a href="" target="_blank" rel="noopener noreferrer"><img src="https://lh3.googleusercontent.com/fIR9dThdbJUu52pEX83SZbDJKlLjUDAsj7JI-UWj4qR2bHFMZaR-EYTJFnBVo5KSQEKTIa3sDQZ5TwnVNb3JuEJksRs26IomZMHflq-A04KfOx3pfnxX3AstMX3-Jzqp2vzPZLKH2f2aikeTAg" alt=""></a>
+                            <a href="" target="_blank" rel="noopener noreferrer"><img src="https://lh3.googleusercontent.com/bU_j_b01hINKA-5CTecm7Roht8uv7zFmyT0DoP1svv2c2gjXX03lIZaylXZGOyTdpsZvQdJJ0wbaPDFFCQ7udRVXDI5qRTzACOTUFM6GQ3DuBhCIXBl-PLVORFpP-sNCxhQikyY3vKgbayH9kg" alt=""></a>
+                            <a href="" target="_blank" rel="noopener noreferrer"><img src="https://lh4.googleusercontent.com/dCZhlbHyZv8q2ZMEOykmAPZTJXrfGBpejbw_FcI9CXXaO7qICiyZSv_2d1FzFbw4P0skNePw87kz-avJdkYIn7FajQcTZ9gqcK5C1KML8emJnW7fPs1DHPj9TeUkLUDSUrUbebI69YVjpEfLHQ" alt=""></a>
+                            <a href="" target="_blank" rel="noopener noreferrer"><img src="https://lh3.googleusercontent.com/grC8Se30jUVRYcwl4gDlyaqCQGrxc8fny4wduP_WbT03jcjX0tlEk2odI0DMgf5a_Sq-0BvKoyl1K_glniKR6N04-sQSk9asy_WAGh6Djm1Q7-JADyfF-InBFIvUxCa3CaaUn-HOSmo1PeSnHQ" alt=""></a>
+                            <a href="" target="_blank" rel="noopener noreferrer"><img src="https://lh4.googleusercontent.com/Drj4MV2SRDDTqVPzcfbQ9Wvx51g6oZX4g_8kUjNhCCWkgLmROFQNfyMHMl8GAWQGLzKSujRHK7N3iSthYHc2ToZc_6AjH3WOxy4IwBLD3qf0Yga6ZUT0_o9gdUWifoiRd6CGApO1Vc-tqZo7kQ" alt=""></a>
                         </div>
                         <div class="coding p-2 col-12 col-sm-6 col-lg-12">
-                            <a href="" target="_blank" rel="noopener noreferrer"><img src="/images/codeforces.png" alt=""></a>
-                            <a href="" target="_blank" rel="noopener noreferrer"><img src="/images/codechef.png" alt=""></a>
-                            <a href="" target="_blank" rel="noopener noreferrer"><img src="/images/hackerrank.png" alt=""></a>
-                            <a href="" target="_blank" rel="noopener noreferrer"><img src="/images/atcoder.png" alt=""></a>
-                            <a href="" target="_blank" rel="noopener noreferrer"><img src="/images/stopstalk.png" alt=""></a>
-                            <a href="" target="_blank" rel="noopener noreferrer"><img src="/images/portfolio.png" alt=""></a>
+                            <a href="" target="_blank" rel="noopener noreferrer"><img src="https://lh4.googleusercontent.com/I_xg7T4Awl5UbhcsNMk-sKB5fVjOFyXjaaLvOD4ZKilSKYf2luG47FheyaHxqIBoFnNmfRsKQEL-uTZDHmQ1_OU8Gu1BUjHbLwSo7c2VWjNwXZzVzHFa_rGVtqGk_J_0GDg16emzO8VTnuV7Nw" alt=""></a>
+                            <a href="" target="_blank" rel="noopener noreferrer"><img src="https://lh6.googleusercontent.com/ZSEapcPWOMrfMW0-eWozQKv_OdW6Zer2eHDi5I7Oi9GlGdMMCmAzV5Grhz5QU9GO9DC6Q93_sMs1HSr_k3bMV90CR1Sa9peCskvkWxFktogVvyBN8R_NLBag31g2hh9xWjb7nrGKDUpYI6DE3Q" alt=""></a>
+                            <a href="" target="_blank" rel="noopener noreferrer"><img src="https://lh3.googleusercontent.com/-fwzSGWux1_05Z1oBCwNY-eg2naoLqkbqColt4yc9P6Zyk6v4Jn1BVQzEAcApu9QS4ixrBLg4cEcDm5uVxm0aaaeMlcPO_v-V3gYVGOdKKydLASRnoFf7s3b0QdMtd_bAjMt1czGKOHNwwV5Lw" alt=""></a>
+                            <a href="" target="_blank" rel="noopener noreferrer"><img src="https://lh4.googleusercontent.com/fzFy3Gu3jKTkYplOYUojb-m9NAhYK8mKcMZEf3O2zGYkN9p6vy5CH4jKocujTAhtVn0AxhyiQEirdoyqlv2TuDKIVoy6G8dbclep8CgkpNJ1QUc-p7cnalvkaRumIm2Ktwt3tiy1W4WQCwGvpw" alt=""></a>
+                            <a href="" target="_blank" rel="noopener noreferrer"><img src="https://lh3.googleusercontent.com/GPcvAbpf8D69aj-GzpOt6jZ28QXZ-0FpEgDh7Ag3oCESsbr4UfmK2v0b4-KytDnBTDVZDfmHUAdVR_J3GbvIiWYEPRVR7A0pzekgih4hOIk8jNNuJb-0afhvRuRsaWg9SAHixSoAiKmIgnG44g" alt=""></a>
+                            <a href="" target="_blank" rel="noopener noreferrer"><img src="https://lh4.googleusercontent.com/MkjcsJIJezRCdBozekMrip1lio4iTZstp7aycTymX9qAp97upeaIs_5RFSyeesuMUZFBXKLtPWEaCPJl4bMQHJLiM5a4HtvnMQ-xqK5E2xL3BLrzwXAHFpc3H34Ah4wtlLoCHcH7CZqQDorSxg" alt=""></a>
                         </div>
                     </div>
                 </div>
