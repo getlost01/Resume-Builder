@@ -233,6 +233,9 @@ body.dark .mode .sun-moon i.moon {
 body.dark .switch::before {
     left: 20px;
 }
+.hidden{
+    display: none;
+}
 .home {
     position: absolute;
     top: 0;

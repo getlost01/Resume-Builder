@@ -14,9 +14,10 @@
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/css/dashboard.css">
     <link rel="stylesheet" href="/css/form.css">
+    <link rel="stylesheet" href="/css/analytic.css">
 
 </head>
-<body class="dark">
+<body class="">
     <nav class="sidebar close">
         <header>
           <div class="image-text">
@@ -88,14 +89,14 @@
       <section class="home">
       
         
-
-        <div class="row formSec">
+<!-- ------------------------------------------------------ Form Section ------------------------------------------------------ -->
+        <div class="row formSec hidden " id="formSection">
           <h4 class="">Data Form</h4>
           <% if(locals.emptyData) {%> 
           <h2 style="background-color:#ffc7c7; border-bottom: 1px solid #ff9393; color:#dd0000;font-size:16px; text-align: center; padding: 5px;font-weight: 400;"><i class="fa-solid fa-triangle-exclamation px-2"></i> Please complete your profile details</h2>
           <%}%>
           <h2 style="background-color:#c7dcff;border-bottom: 1px solid #7db1ff; color:#0057d9;font-size:16px; text-align: center; padding: 5px;font-weight: 400;"><i class="fa-solid fa-circle-info"></i> Automatic save not possible, so user have to update data.</h2>
-          <form action="/submit-form" class="d-flex justify-content-center" method="post" target="_blank">
+          <form action="/dashboard/preview" class="d-flex justify-content-center" method="post" target="_blank">
       
             <div class="col-12 col-md-10 my-2">
               <section class="row box-section">
@@ -544,6 +545,38 @@
           </form>
         </div>
 
+<!-- ------------------------------------------------------ Form Section ------------------------------------------------------ -->
+        <div class="row analyticSec " id="analyticSec">
+          <h4>Analytics</h4>
+            <div class="row">
+              <div class="col-12">
+                <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <canvas id="myChart1" style="width:100%;max-width:700px"></canvas>
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <canvas id="myChart2" style="width:100%;max-width:700px"></canvas>
+
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12">
+                <canvas id="myChart2" style="width:100%;max-width:700px"></canvas>
+
+              </div>
+            </div>
+
+
+
+        </div>
 
         </div>
       </section>
@@ -553,7 +586,9 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" 
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" 
       crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
       <script src="/js/dashboard.js"></script>
       <script src="/js/form.js"></script>
+      <script src="/js/analytic.js"></script>
 </body>
 </html>
