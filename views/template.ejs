@@ -17,12 +17,17 @@
 <body class="">
 	
 
+    <button class="customBTN" id="printPage"><i class="fa-solid fa-download"></i> Download</button>
+
+    <div id="template"> <!-- Start of template-->
+    <!-- ------------------------------------------------------Header-------------- -->
+
     <div class="row">
 
         <div class="col-12 header">
             <div class="d-flex justify-content-center">
                 <% if(locals.userData.photo!=""){%>
-                <img src="<%= locals.userData.photo %>" alt="" style="width:100px; border-radius: 50%; background-color:aliceblue; border: 2px solid rgb(230, 230, 230);">
+                <img src="/images/1654694040063.jpg" alt="" style="width:100px; border-radius: 50%; background-color:aliceblue; border: 2px solid rgb(230, 230, 230);">
                 <%}else{%>
                 <img src="https://www.pngmart.com/files/21/Account-User-PNG-Transparent.png" alt="" style="width:100px; border-radius: 50%; background-color:aliceblue; border: 2px solid rgb(230, 230, 230);">
                 <% } %> 
@@ -31,349 +36,340 @@
                 <h3 class="text-center"><%= locals.userData.name %></h3>
             </div>
             <div>
-                <h6 class="text-center">I'm passionated SDE aspirant.</h6>
+                <h6 class="text-center"><%= locals.userData.bio %></h6>
             </div>
             <div>
                 <p class="row">
                     <span class="col-12 col-sm-6 col-lg-3 text-center"><i class="fa-brands fa-linkedin-in"></i>
-                    linkedin.com/in/aagam-jain-gl01
+                    <a href="<%= locals.userData.linkedin %>" target="_blank" rel="noopener noreferrer"><%= locals.userData.linkedin.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "") %></a>
                     </span>
                     <span class="col-12 col-sm-6 col-lg-3 text-center"><i class="fa-solid fa-at"></i>
-                    aagamjain573@gmail.com
+                    <a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&to=<%= locals.userData.email %>" target="_blank" rel="noopener noreferrer"><%= locals.userData.email %></a>
                     </span>
                     <span class="col-12 col-sm-6 col-lg-3 text-center"><i class="fa-solid fa-location-dot"></i>
-                    206 civil lines Lalitpur
+                    <%= locals.userData.address %>, <%= locals.userData.city %>
                     </span>
                     <span class="col-12 col-sm-6 col-lg-3 text-center"><i class="fa-solid fa-phone"></i>
-                    93054xxxxx
+                    <%= locals.userData.mobile.substring(0,5) %>xxxxx 
                     </span>
                 </p>
             </div>
         </div>
     </div>
 
+    <!-- ------------------------------------------------------Description---------------- -->
     <div class="row p-2 d-flex justify-content-center">
             <div class="col-12 col-md-10 proDes">
                 <h4>Description</h4>
                 <div class="h4Bottom"></div>
-                <p>Hi! My name is Aagam Jain. I'm very dedicated and hardworking person who always thrives to work on end to end products. With my experience and knowlege I acquire many skills and make many successful projects. I enjoyed every step of creation , learning , development and collaboration.</p>
+                <p><%= locals.userData.brief %> <% if(locals.userData.portfolio) {%>  <a href="<%= locals.userData.portfolio %> " target="_blank" rel="noopener noreferrer">Visit my portfolio for more details.</a> <%}%> </p>
             </div>
     </div>
 
+    <!-- ------------------------------------------------------ container ------------------------------------------------------ -->
+        <div class="row p-2 d-flex justify-content-center">
 
-    <div class="row p-2 d-flex justify-content-center">
+    <!-- ------------------------------------------------------ Col-8 section ------------------------------------------------------------- -->
 
-            <div class="col-12 col-lg-6 col-md-9 mx-2 py-2 ">
-               
-<!-- ------------------------------------------------------Education ------------------------------------------------------------- -->
+
+                <div class="col-12 col-lg-6 col-md-9 mx-2 py-2 ">
+                
+    <!-- ------------------------------------------------------Education ------------------------------------------------------------- -->
+                    <div class="row">
+                        <div class="education">
+                            <h4>Education</h4>
+                            <div class="h4Bottom"></div>
+                        <div class="con">
+                            <div class="design">
+        
+                            </div>
+                            <div class="details col-12">
+        
+                                
+                                <div class="p-2">
+                                    <div class="dot"></div>
+                                    <div class="colSch"> 
+                                        <div class="date">
+                                            <i class="fa-solid fa-calendar-days"></i>
+                                            <%= parseInt(locals.userData.passingYear.substring(0,4)) - 4 %> - <%= locals.userData.passingYear.substring(0,4) %>
+                                        </div>
+                                        <div class="row px-1">
+                                            <div class="col-12 d-flex flex-column flex-md-row justify-content-md-between" >
+                                                <p class="bold600 "><%= locals.userData.college %></p>
+                                                <p>Cgpa: <span class="bold600"><%= locals.userData.cgpi %></span> </p>
+                                            </div>
+                                            <div class="col-12 d-flex flex-column flex-md-row justify-content-md-between">
+                                                <p>Course: <span class="bold600"><%= locals.userData.course %></span></p>
+                                                <p>Roll no: <span class="bold600"><%= locals.userData.rollno %></span></p>
+                                            </div>
+                                                <p>Year of Completion: <span class="bold600 "><%=locals.userData.passingYear.substring(0,4)%></span></p>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <div class="p-2">
+                                    <div class="dot"></div>
+                                    <div class="colSch"> 
+                                        <div class="date">
+                                            <i class="fa-solid fa-calendar-days"></i>
+                                            <%= parseInt(locals.userData.passingYearS.substring(0,4)) - 2 %> - <%= locals.userData.passingYearS.substring(0,4) %>
+                                        </div>
+                                        <div class="row px-1">
+                                            <div class="col-12 d-flex flex-column flex-md-row justify-content-md-between">
+                                                <p class="bold600 "><%= locals.userData.school %></p>
+                                                <p>Per / Cgpa: <span class="bold600"><%= locals.userData.cgpiS %></span> </p>
+                                            </div>
+                                            <div class="col-12 d-flex flex-column flex-md-row justify-content-md-between">
+                                                <p>12th / Equivalent: <span class="bold600"><%= locals.userData.courseS %></span></p>
+                                            </div>
+                                                <p>Year of Completion: <span class="bold600"><%= locals.userData.passingYearS.substring(0,4) %></span></p>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+    <!-- ------------------------------------------------------Experience ------------------------------------------------------------- -->
+
+                    <%if(!locals.userData.titleExp){%>
+
+                    <%}else{%>
+                    <div class="row">
+                    
+                        <div class="experience">
+                            <h4>Working experience</h4>
+                            <div class="h4Bottom"></div>
+                        <div class="con">
+                            <div class="design">
+        
+                            </div>
+                            <div class="details col-12">
+
+                                
+                                <% var isArr = Array.isArray(locals.userData.titleExp), len = (isArr? locals.userData.titleExp.length : 1) %>
+                                <% for(var i=0; i< len ; i++)  {%>
+
+                                <div class="p-2">
+                                    <div class="dot"></div>
+                                    <div class="colSch"> 
+                                        <div class="date">
+                                            <i class="fa-solid fa-calendar-days"></i>
+                                            <%=(isArr? locals.userData.timeExp[i] : locals.userData.timeExp )%>
+                                        </div>
+                                        <div class="row px-1">
+                                            <div class="col-12 d-flex flex-column flex-md-row justify-content-md-between">
+                                                <p class="bold600 "><%=(isArr? locals.userData.titleExp[i] : locals.userData.titleExp )%></p>
+                                                <p class="bold600"><%=(isArr? locals.userData.designationExp[i] : locals.userData.designationExp )%></p>
+                                            </div>
+                                            <div class="col-12 d-flex flex-column flex-md-row justify-content-md-between">
+                                                <p><%=(isArr? locals.userData.descrpExp[i] : locals.userData.descrpExp )%></p>
+                                            </div>
+                                            <div class="col-12 d-flex flex-column flex-md-row justify-content-md-between">
+                                                <p><span class="bold500">Tech:</span> <span class="bold600"><%=(isArr? locals.userData.techExp[i] : locals.userData.techExp )%></span></p>
+                                            </div>
+                                            <% if((isArr? locals.userData.linkExp[i] : locals.userData.linkExp )) {%>  <p> <a href="<%=(isArr? locals.userData.linkExp[i] : locals.userData.linkExp )%>" target="_blank" rel="noopener noreferrer">For more visit here</a></p> <% } %> 
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <% } %> 
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+                     <%}%>
+                
+
+
+    <!-- ------------------------------------------------------Project------------------------------------------------------------- -->
+                <%if(!locals.userData.titlePro){%>
+
+                <%}else{%>
+
                 <div class="row">
-                    <div class="education">
-                        <h4>Education</h4>
+                    <div class="project">
+                        <h4>Project</h4>
                         <div class="h4Bottom"></div>
                     <div class="con">
                         <div class="design">
-    
+
                         </div>
                         <div class="details col-12">
-    
-                            <div class="p-2">
-                                <div class="dot"></div>
-                                <div class="colSch"> 
-                                    <div class="date">
-                                        <i class="fa-solid fa-calendar-days"></i>
-                                        2020 - present
-                                    </div>
-                                    <div class="row px-1">
-                                        <div class="col-12 d-flex flex-column flex-md-row justify-content-md-between">
-                                            <p class="bold600 ">UIET CSJM University Kanpur</p>
-                                            <p>Cgpa: <span class="bold600">7.94</span> </p>
+
+                            <% var isArr = Array.isArray(locals.userData.titlePro), len = (isArr? locals.userData.titlePro.length : 1) %>
+                            <% for(var i=0; i< len ; i++)  {%>
+                                <div class="p-2">
+                                    <div class="dot"></div>
+                                    <div class="colSch"> 
+                                        <div class="date">
+                                            <i class="fa-solid fa-calendar-days"></i>
+                                            <%=(isArr? locals.userData.timePro[i] : locals.userData.timePro )%>
                                         </div>
-                                        <div class="col-12 d-flex flex-column flex-md-row justify-content-md-between">
-                                            <p>B-Tech CSE</p>
-                                            <p>Roll no: <span class="bold600">001</span></p>
+                                        <div class="row px-1">
+                                            <div class="col-12 d-flex flex-column flex-md-row justify-content-md-between">
+                                                <p class="bold600 "><%=(isArr? locals.userData.titlePro[i] : locals.userData.titlePro )%></p>
+                                                <% if((isArr? locals.userData.gitPro[i] : locals.userData.gitPro )) {%> <p> <a href="<%=(isArr? locals.userData.gitPro[i] : locals.userData.gitPro )%>" target="_blank" rel="noopener noreferrer">Github Repo</a></p> <% } %>
+                                            </div>
+                                            <div class="col-12 d-flex flex-column flex-md-row justify-content-md-between">
+                                                <p><%=(isArr? locals.userData.descrpPro[i] : locals.userData.descrpPro )%></p>
+                                            </div>
+                                            <div class="col-12 d-flex flex-column flex-md-row justify-content-md-between">
+                                                <p><span class="bold500">Tech:</span> <span class="bold600"> <%=(isArr? locals.userData.techPro[i] : locals.userData.techPro )%> </span></p>
+                                            </div>
+                                            <% if((isArr? locals.userData.linkPro[i] : locals.userData.linkPro )) {%> <p> <a href="<%=(isArr? locals.userData.linkPro[i] : locals.userData.linkPro )%>" target="_blank" rel="noopener noreferrer"> Visit my project</a></p> <% } %> 
                                         </div>
-                                            <p>Year of Completion: <span class="bold500">2024</span></p>
-                                    </div>
-                                </div>
-                            </div>
-    
-                            <div class="p-2">
-                                <div class="dot"></div>
-                                <div class="colSch"> 
-                                    <div class="date">
-                                        <i class="fa-solid fa-calendar-days"></i>
-                                        2007 - 2019
-                                    </div>
-                                    <div class="row px-1">
-                                        <div class="col-12 d-flex flex-column flex-md-row justify-content-md-between">
-                                            <p class="bold600 ">St. Dominic Savio convent School Lalitpur</p>
-                                            <p>Per: <span class="bold600">87.4%</span> </p>
-                                        </div>
-                                        <div class="col-12 d-flex flex-column flex-md-row justify-content-md-between">
-                                            <p>12th Board PCM + CS</p>
-                                        </div>
-                                            <p>Year of Completion: <span class="bold500">2019</span></p>
                                     </div>
                                 </div>
-                            </div>
-    
+
+                            <% } %> 
+
                         </div>
                     </div>
                 </div>
+                </div>
 
+                <%}%>
+                
 
-<!-- ------------------------------------------------------Experience ------------------------------------------------------------- -->
-
-
-                <div class="row">
-                    <div class="experience">
-                        <h4>Working experience</h4>
-                        <div class="h4Bottom"></div>
-                    <div class="con">
-                        <div class="design">
-    
-                        </div>
-                        <div class="details col-12">
-    
-                            <div class="p-2">
-                                <div class="dot"></div>
-                                <div class="colSch"> 
-                                    <div class="date">
-                                        <i class="fa-solid fa-calendar-days"></i>
-                                        2020 - 2021
-                                    </div>
-                                    <div class="row px-1">
-                                        <div class="col-12 d-flex flex-column flex-md-row justify-content-md-between">
-                                            <p class="bold600 ">Firm Name</p>
-                                            <p class="bold600"> SWE Intern</p>
-                                        </div>
-                                        <div class="col-12 d-flex flex-column flex-md-row justify-content-md-between">
-                                            <p>I work there on a backend project.</p>
-                                        </div>
-                                        <div class="col-12 d-flex flex-column flex-md-row justify-content-md-between">
-                                            <p><span class="bold500">Tech:</span> Html, CSS, Javascript</p>
-                                        </div>
-                                            <p> <a href="">Link</a></p>
-                                    </div>
-                                </div>
-                            </div>
-    
-                         </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-
-
-<!-- ------------------------------------------------------Project------------------------------------------------------------- -->
-
-
-            <div class="row">
-                <div class="project">
-                    <h4>Project</h4>
-                    <div class="h4Bottom"></div>
-                <div class="con">
-                    <div class="design">
-
-                    </div>
-                    <div class="details col-12">
-
-                            <div class="p-2">
-                                <div class="dot"></div>
-                                <div class="colSch"> 
-                                    <div class="date">
-                                        <i class="fa-solid fa-calendar-days"></i>
-                                        4/2022 - 5/2022
-                                    </div>
-                                    <div class="row px-1">
-                                        <div class="col-12 d-flex flex-column flex-md-row justify-content-md-between">
-                                            <p class="bold600 ">CP CONTEST Calender</p>
-                                            <p class="bold600"> Github Repo</p>
-                                        </div>
-                                        <div class="col-12 d-flex flex-column flex-md-row justify-content-md-between">
-                                            <p>This extension is very useful for programmers who do Competitive Programming, this extension provides upcoming CP contest details of different platforms.</p>
-                                        </div>
-                                        <div class="col-12 d-flex flex-column flex-md-row justify-content-md-between">
-                                            <p><span class="bold500">Tech:</span> Html, CSS, Javascript</p>
-                                        </div>
-                                            <p> <a href="">Link</a></p>
-                                    </div>
-                                </div>
-                            </div>
-
-                           <div class="p-2">
-                                <div class="dot"></div>
-                                <div class="colSch"> 
-                                    <div class="date">
-                                        <i class="fa-solid fa-calendar-days"></i>
-                                        4/2022 - 5/2022
-                                    </div>
-                                    <div class="row px-1">
-                                        <div class="col-12 d-flex flex-column flex-md-row justify-content-md-between">
-                                            <p class="bold600 ">CP CONTEST Calender</p>
-                                            <p class="bold600"> Github Repo</p>
-                                        </div>
-                                        <div class="col-12 d-flex flex-column flex-md-row justify-content-md-between">
-                                            <p>This extension is very useful for programmers who do Competitive Programming, this extension provides upcoming CP contest details of different platforms.</p>
-                                        </div>
-                                        <div class="col-12 d-flex flex-column flex-md-row justify-content-md-between">
-                                            <p><span class="bold500">Tech:</span> Html, CSS, Javascript</p>
-                                        </div>
-                                            <p> <a href="">Link</a></p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="p-2">
-                                <div class="dot"></div>
-                                <div class="colSch"> 
-                                    <div class="date">
-                                        <i class="fa-solid fa-calendar-days"></i>
-                                        4/2022 - 5/2022
-                                    </div>
-                                    <div class="row px-1">
-                                        <div class="col-12 d-flex flex-column flex-md-row justify-content-md-between">
-                                            <p class="bold600 ">CP CONTEST Calender</p>
-                                            <p class="bold600"> Github Repo</p>
-                                        </div>
-                                        <div class="col-12 d-flex flex-column flex-md-row justify-content-md-between">
-                                            <p>This extension is very useful for programmers who do Competitive Programming, this extension provides upcoming CP contest details of different platforms.</p>
-                                        </div>
-                                        <div class="col-12 d-flex flex-column flex-md-row justify-content-md-between">
-                                            <p><span class="bold500">Tech:</span> Html, CSS, Javascript</p>
-                                        </div>
-                                            <p> <a href="">Link</a></p>
-                                    </div>
-                                </div>
-                            </div>
-
-                     </div>
-                 </div>
-              </div>
-           </div>
 
                 
-            
 
-
-            
-
-        </div>
-<!-- ------------------------------------------------------ Col-4 section ------------------------------------------------------------- -->
-            
-            
-        
-
-
-
-
-
-
+                </div>
+    <!-- ------------------------------------------------------ Col-4 section ------------------------------------------------------------- -->
 
 
 
             <div class="col-12 col-lg-4 col-md-9 mx-2 boxcol4">
 
-<!-- ------------------------------------------------------ Social section ------------------------------------------------------------- -->
+            <!-- ------------------------------------------------------ Social section ------------------------------------------------------------- -->
 
-                <div class="row spre py-3 p-1">
-                    <h4>Social presence</h4>
-                    <div class="h4Bottom"></div>
-                    <div class="social row">
-                        <div class="media p-2 col-12 col-sm-6 col-lg-12">
-                            <a href="" target="_blank" rel="noopener noreferrer"><img src="https://lh5.googleusercontent.com/2ObkNTLl4H9F3zyoKwej3hz8l1pp4wR_ctPM12pRytcSW2RTUD1Ki12AKmTR2WqDP6CLfLaX3yIU7XAzrOHLil2SirdecgWdiLnQ-KODcQOrVJXP1S0MrHdjHUzCjgv_iHECCR51tzTCqoxIzA" alt=""></a>
-                            <a href="" target="_blank" rel="noopener noreferrer"><img src="https://lh3.googleusercontent.com/fIR9dThdbJUu52pEX83SZbDJKlLjUDAsj7JI-UWj4qR2bHFMZaR-EYTJFnBVo5KSQEKTIa3sDQZ5TwnVNb3JuEJksRs26IomZMHflq-A04KfOx3pfnxX3AstMX3-Jzqp2vzPZLKH2f2aikeTAg" alt=""></a>
-                            <a href="" target="_blank" rel="noopener noreferrer"><img src="https://lh3.googleusercontent.com/bU_j_b01hINKA-5CTecm7Roht8uv7zFmyT0DoP1svv2c2gjXX03lIZaylXZGOyTdpsZvQdJJ0wbaPDFFCQ7udRVXDI5qRTzACOTUFM6GQ3DuBhCIXBl-PLVORFpP-sNCxhQikyY3vKgbayH9kg" alt=""></a>
-                            <a href="" target="_blank" rel="noopener noreferrer"><img src="https://lh4.googleusercontent.com/dCZhlbHyZv8q2ZMEOykmAPZTJXrfGBpejbw_FcI9CXXaO7qICiyZSv_2d1FzFbw4P0skNePw87kz-avJdkYIn7FajQcTZ9gqcK5C1KML8emJnW7fPs1DHPj9TeUkLUDSUrUbebI69YVjpEfLHQ" alt=""></a>
-                            <a href="" target="_blank" rel="noopener noreferrer"><img src="https://lh3.googleusercontent.com/grC8Se30jUVRYcwl4gDlyaqCQGrxc8fny4wduP_WbT03jcjX0tlEk2odI0DMgf5a_Sq-0BvKoyl1K_glniKR6N04-sQSk9asy_WAGh6Djm1Q7-JADyfF-InBFIvUxCa3CaaUn-HOSmo1PeSnHQ" alt=""></a>
-                            <a href="" target="_blank" rel="noopener noreferrer"><img src="https://lh4.googleusercontent.com/Drj4MV2SRDDTqVPzcfbQ9Wvx51g6oZX4g_8kUjNhCCWkgLmROFQNfyMHMl8GAWQGLzKSujRHK7N3iSthYHc2ToZc_6AjH3WOxy4IwBLD3qf0Yga6ZUT0_o9gdUWifoiRd6CGApO1Vc-tqZo7kQ" alt=""></a>
-                        </div>
-                        <div class="coding p-2 col-12 col-sm-6 col-lg-12">
-                            <a href="" target="_blank" rel="noopener noreferrer"><img src="https://lh4.googleusercontent.com/I_xg7T4Awl5UbhcsNMk-sKB5fVjOFyXjaaLvOD4ZKilSKYf2luG47FheyaHxqIBoFnNmfRsKQEL-uTZDHmQ1_OU8Gu1BUjHbLwSo7c2VWjNwXZzVzHFa_rGVtqGk_J_0GDg16emzO8VTnuV7Nw" alt=""></a>
-                            <a href="" target="_blank" rel="noopener noreferrer"><img src="https://lh6.googleusercontent.com/ZSEapcPWOMrfMW0-eWozQKv_OdW6Zer2eHDi5I7Oi9GlGdMMCmAzV5Grhz5QU9GO9DC6Q93_sMs1HSr_k3bMV90CR1Sa9peCskvkWxFktogVvyBN8R_NLBag31g2hh9xWjb7nrGKDUpYI6DE3Q" alt=""></a>
-                            <a href="" target="_blank" rel="noopener noreferrer"><img src="https://lh3.googleusercontent.com/-fwzSGWux1_05Z1oBCwNY-eg2naoLqkbqColt4yc9P6Zyk6v4Jn1BVQzEAcApu9QS4ixrBLg4cEcDm5uVxm0aaaeMlcPO_v-V3gYVGOdKKydLASRnoFf7s3b0QdMtd_bAjMt1czGKOHNwwV5Lw" alt=""></a>
-                            <a href="" target="_blank" rel="noopener noreferrer"><img src="https://lh4.googleusercontent.com/fzFy3Gu3jKTkYplOYUojb-m9NAhYK8mKcMZEf3O2zGYkN9p6vy5CH4jKocujTAhtVn0AxhyiQEirdoyqlv2TuDKIVoy6G8dbclep8CgkpNJ1QUc-p7cnalvkaRumIm2Ktwt3tiy1W4WQCwGvpw" alt=""></a>
-                            <a href="" target="_blank" rel="noopener noreferrer"><img src="https://lh3.googleusercontent.com/GPcvAbpf8D69aj-GzpOt6jZ28QXZ-0FpEgDh7Ag3oCESsbr4UfmK2v0b4-KytDnBTDVZDfmHUAdVR_J3GbvIiWYEPRVR7A0pzekgih4hOIk8jNNuJb-0afhvRuRsaWg9SAHixSoAiKmIgnG44g" alt=""></a>
-                            <a href="" target="_blank" rel="noopener noreferrer"><img src="https://lh4.googleusercontent.com/MkjcsJIJezRCdBozekMrip1lio4iTZstp7aycTymX9qAp97upeaIs_5RFSyeesuMUZFBXKLtPWEaCPJl4bMQHJLiM5a4HtvnMQ-xqK5E2xL3BLrzwXAHFpc3H34Ah4wtlLoCHcH7CZqQDorSxg" alt=""></a>
-                        </div>
-                    </div>
-                </div>
+                            <div class="row spre py-3 p-1">
+                                <h4>Social presence</h4>
+                                <div class="h4Bottom"></div>
+                                <div class="social row">
+                                    <div class="media p-2 col-12">
+                                        <%if(locals.userData.linkedin) {%> <a href="<%=locals.userData.linkedin%>" target="_blank" ><img src="https://lh5.googleusercontent.com/2ObkNTLl4H9F3zyoKwej3hz8l1pp4wR_ctPM12pRytcSW2RTUD1Ki12AKmTR2WqDP6CLfLaX3yIU7XAzrOHLil2SirdecgWdiLnQ-KODcQOrVJXP1S0MrHdjHUzCjgv_iHECCR51tzTCqoxIzA" alt=""></a><%}%>
+                                        <%if(locals.userData.instagram) {%> <a href="<%=locals.userData.instagram%>" target="_blank" ><img src="https://lh3.googleusercontent.com/fIR9dThdbJUu52pEX83SZbDJKlLjUDAsj7JI-UWj4qR2bHFMZaR-EYTJFnBVo5KSQEKTIa3sDQZ5TwnVNb3JuEJksRs26IomZMHflq-A04KfOx3pfnxX3AstMX3-Jzqp2vzPZLKH2f2aikeTAg" alt=""></a><%}%>
+                                        <%if(locals.userData.facebook) {%> <a href="<%=locals.userData.facebook%>" target="_blank" ><img src="https://lh3.googleusercontent.com/bU_j_b01hINKA-5CTecm7Roht8uv7zFmyT0DoP1svv2c2gjXX03lIZaylXZGOyTdpsZvQdJJ0wbaPDFFCQ7udRVXDI5qRTzACOTUFM6GQ3DuBhCIXBl-PLVORFpP-sNCxhQikyY3vKgbayH9kg" alt=""></a><%}%>
+                                        <%if(locals.userData.twitter) {%> <a href="<%=locals.userData.twitter%>" target="_blank" ><img src="https://lh4.googleusercontent.com/dCZhlbHyZv8q2ZMEOykmAPZTJXrfGBpejbw_FcI9CXXaO7qICiyZSv_2d1FzFbw4P0skNePw87kz-avJdkYIn7FajQcTZ9gqcK5C1KML8emJnW7fPs1DHPj9TeUkLUDSUrUbebI69YVjpEfLHQ" alt=""></a><%}%>
+                                        <%if(locals.userData.medium) {%> <a href="<%=locals.userData.medium%>" target="_blank" ><img src="https://lh3.googleusercontent.com/grC8Se30jUVRYcwl4gDlyaqCQGrxc8fny4wduP_WbT03jcjX0tlEk2odI0DMgf5a_Sq-0BvKoyl1K_glniKR6N04-sQSk9asy_WAGh6Djm1Q7-JADyfF-InBFIvUxCa3CaaUn-HOSmo1PeSnHQ" alt=""></a><%}%>
+                                        <%if(locals.userData.github) {%> <a href="<%=locals.userData.github%>" target="_blank" ><img src="https://lh4.googleusercontent.com/Drj4MV2SRDDTqVPzcfbQ9Wvx51g6oZX4g_8kUjNhCCWkgLmROFQNfyMHMl8GAWQGLzKSujRHK7N3iSthYHc2ToZc_6AjH3WOxy4IwBLD3qf0Yga6ZUT0_o9gdUWifoiRd6CGApO1Vc-tqZo7kQ" alt=""></a><%}%>
 
-<!-- ------------------------------------------------------ Skill section ------------------------------------------------------------- -->
-                <div class="row skies py-3 p-1">
-                    <h4>Skills</h4>
-                    <div class="h4Bottom"></div>
-                        <div class="skill row">
-    
-                           <div class="skillbox">C</div>
-                           <div class="skillbox">C++</div>
-                           <div class="skillbox">Java</div>
-                           <div class="skillbox">JavaScript</div>
-                           <div class="skillbox">HTML</div>
-                           <div class="skillbox">CSS</div>
-                           <div class="skillbox">Bootstrap</div>
-                           <div class="skillbox">NodeJs</div>
-                           <div class="skillbox">ExpressJs</div>
-                           <div class="skillbox">Mongoose</div>
-    
-                        </div>
-                </div>
+                                        <%if(locals.userData.codeforces) {%> <a href="<%=locals.userData.codeforces%>" target="_blank" ><img src="https://lh4.googleusercontent.com/I_xg7T4Awl5UbhcsNMk-sKB5fVjOFyXjaaLvOD4ZKilSKYf2luG47FheyaHxqIBoFnNmfRsKQEL-uTZDHmQ1_OU8Gu1BUjHbLwSo7c2VWjNwXZzVzHFa_rGVtqGk_J_0GDg16emzO8VTnuV7Nw" alt=""></a><%}%>
+                                        <%if(locals.userData.codechef) {%> <a href="<%=locals.userData.codechef%>" target="_blank" ><img src="https://lh6.googleusercontent.com/ZSEapcPWOMrfMW0-eWozQKv_OdW6Zer2eHDi5I7Oi9GlGdMMCmAzV5Grhz5QU9GO9DC6Q93_sMs1HSr_k3bMV90CR1Sa9peCskvkWxFktogVvyBN8R_NLBag31g2hh9xWjb7nrGKDUpYI6DE3Q" alt=""></a><%}%>
+                                        <%if(locals.userData.hackerrank) {%> <a href="<%=locals.userData.hackerrank%>" target="_blank" ><img src="https://lh3.googleusercontent.com/-fwzSGWux1_05Z1oBCwNY-eg2naoLqkbqColt4yc9P6Zyk6v4Jn1BVQzEAcApu9QS4ixrBLg4cEcDm5uVxm0aaaeMlcPO_v-V3gYVGOdKKydLASRnoFf7s3b0QdMtd_bAjMt1czGKOHNwwV5Lw" alt=""></a><%}%>
+                                        <%if(locals.userData.atcoder) {%> <a href="<%=locals.userData.atcoder%>" target="_blank" ><img src="https://lh4.googleusercontent.com/fzFy3Gu3jKTkYplOYUojb-m9NAhYK8mKcMZEf3O2zGYkN9p6vy5CH4jKocujTAhtVn0AxhyiQEirdoyqlv2TuDKIVoy6G8dbclep8CgkpNJ1QUc-p7cnalvkaRumIm2Ktwt3tiy1W4WQCwGvpw" alt=""></a><%}%>
+                                        <%if(locals.userData.stopstalk) {%> <a href="<%=locals.userData.stopstalk%>" target="_blank" ><img src="https://lh3.googleusercontent.com/GPcvAbpf8D69aj-GzpOt6jZ28QXZ-0FpEgDh7Ag3oCESsbr4UfmK2v0b4-KytDnBTDVZDfmHUAdVR_J3GbvIiWYEPRVR7A0pzekgih4hOIk8jNNuJb-0afhvRuRsaWg9SAHixSoAiKmIgnG44g" alt=""></a><%}%>
+                                        <%if(locals.userData.leetcode) {%> <a href="<%=locals.userData.leetcode%>" target="_blank" ><img src="https://lh4.googleusercontent.com/MkjcsJIJezRCdBozekMrip1lio4iTZstp7aycTymX9qAp97upeaIs_5RFSyeesuMUZFBXKLtPWEaCPJl4bMQHJLiM5a4HtvnMQ-xqK5E2xL3BLrzwXAHFpc3H34Ah4wtlLoCHcH7CZqQDorSxg" alt=""></a><%}%>
+                                    </div>
+                                </div>
+                            </div>
+
+            <!-- ------------------------------------------------------ Skill section ------------------------------------------------------------- -->
+                            <div class="row skies py-3 p-1">
+                                <h4>Skills</h4>
+                                <div class="h4Bottom"></div>
+                                    <div class="skill row">
+                                        <% var skillArr = locals.userData.skills.split(','),len = skillArr.length %>
+                                        <% for(var i=0; i< len ; i++)  {%>
+                                    <div class="skillbox"><%=skillArr[i]%></div>
+                                        <%}%>
+                                    </div>
+                            </div>
 
 
-<!-- ------------------------------------------------------ Certificate section ------------------------------------------------------------- -->
-                <div class="row ceries py-3 p-1">
-                    <h4>Certificates</h4>
-                    <div class="h4Bottom"></div>
-                        <div class="certificates row">
-    
-                           <a href=""><div class="ceriesBox"><h5>Front-End Web UI Frameworks and Tools: Bootstrap 4</h5><p>Coursera</p></div></a>
-                           <a href=""><div class="ceriesBox"><h5>CP & Algo </h5><p>Coding Ninja</p></div></a>
-                           <a href=""><div class="ceriesBox"><h5>Web development</h5><p>Edureka</p></div></a>
-                           <a href=""><div class="ceriesBox"><h5>CP & Algo </h5><p>Coding Ninja</p></div></a>
+            <!-- ------------------------------------------------------ Certificate section ------------------------------------------------------------- -->
+                            <%if(!locals.userData.titleCer){%>
 
-    
-                        </div>
-                    </div>
+                            <%}else{%>
+                            <div class="row ceries py-3 p-1">
+                                <h4>Certificates</h4>
+                                <div class="h4Bottom"></div>
+                                    <div class="certificates row">
+                                        
+                                        <% var isArr = Array.isArray(locals.userData.titleCer), len = (isArr? locals.userData.titleCer.length : 1) %>
+                                        <% for(var i=0; i< len ; i++)  {%>
+                                        <a href="<%=(isArr? locals.userData.linkCer[i] : locals.userData.linkCer )%>" target="_blank" rel="noopener noreferrer">
+                                            <div class="ceriesBox">
+                                                <h5><%=(isArr? locals.userData.titleCer[i] : locals.userData.titleCer )%></h5>
+                                                <p><%=(isArr? locals.userData.issCer[i] : locals.userData.issCer )%></p>
+                                            </div>
+                                        </a>
+                                        
 
-<!-- ------------------------------------------------------ Honor section ------------------------------------------------------------- -->
-                <div class="row honies py-3 p-1">
-                    <h4>Achievements</h4>
-                    <div class="h4Bottom"></div>
-                        <div class="honor row">
-    
-                           <div class="honiesBox"><p><span class="shine">⭐️</span>  I got 500 rank in google kickstart-A 2022. <a href="">More</a></p></div>
-                           <div class="honiesBox"><p><span class="shine">⭐️</span> I got 800 rank codeforces (round 623). <a href="">More</a></p></div>
-                           <div class="honiesBox"><p><span class="shine">⭐️</span> I got 10 CGPA in 4th semester of my Btech college. <a href="">More</a></p></div>
-
-    
-                        </div>
-                    </div>
-
-
-
-
-
+                                        <%}%>
                 
-        </div>
-    </div>
+                                    </div>
+                                </div>
+                                <%}%>
 
+            <!-- ------------------------------------------------------ Honor section ------------------------------------------------------------- -->
+                                <%if(!locals.userData.descrpHon && !locals.userData.achievements){%>
+
+                                <%}else{%>
+                                <div class="row honies py-3 p-1">
+                                <h4>Achievements</h4>
+                                <div class="h4Bottom"></div>
+                                    <div class="honor row">
+
+                                        <%if(locals.userData.descrpHon) {%> 
+                                        <% var isArr = Array.isArray(locals.userData.descrpHon), len = (isArr? locals.userData.descrpHon.length : 1) %>
+                                        <% for(var i=0; i< len ; i++)  {%>
+                                    <div class="honiesBox"><p><span class="shine">⭐️</span>  <%= (isArr? locals.userData.descrpHon[i] : locals.userData.descrpHon )%>
+                                        <%if((isArr? locals.userData.linkHon[i] : locals.userData.linkHon )) {%>  
+                                            <a href="<%=(isArr? locals.userData.linkHon[i] : locals.userData.linkHon )%>" target="_blank" rel="noopener noreferrer">More details</a><% } %> </p></div>
+                                        <%}}%>
+                                        
+                                        <%if(locals.userData.achievements) {%> <div class="honiesBox"><p> <span class="bold600">College Achievements:</span> <%=locals.userData.achievements%> </div> <%}%>
+                
+                                    </div>
+                                </div>
+                                <%}%>
+
+            </div>
+
+        </div>
+
+<!-- ------------------------------------------------------extra Info-----------  -->
+        <%if(!locals.userData.descrpInfo){%>
+
+        <%}else{%>
         <div class="row p-2 d-flex justify-content-center">
             <div class="col-12 col-md-10 proDes">
                 <h4>Extra Detail</h4>
                 <div class="h4Bottom"></div>
-                <p>Hey visitor ! Currently I am a 3rd year graduate and seeking a good internship opportunity, if you have any opportunity then please contact me. Here I attached my resume and above I have provided all important info related to my projects and experience , if any internship / freelance work related to mty profile then please contact me.</p>
+                <% var isArr = Array.isArray(locals.userData.descrpInfo), len = (isArr? locals.userData.descrpInfo.length : 1) %>
+                <% for(var i=0; i< len ; i++)  {%>
+                <p>🔵 <%=(isArr? locals.userData.descrpInfo[i] : locals.userData.descrpInfo )%> 
+                    <%if((isArr? locals.userData.linkInfo[i] : locals.userData.linkInfo )) {%>  
+                        <a href="<%=(isArr? locals.userData.linkInfo[i] : locals.userData.linkInfo )%>" target="_blank" rel="noopener noreferrer">Visit here for more.</a>
+                    <%}%></p>
+                <%}%>
             </div>
-         </div>
+        </div>
+        <%}%>
 
-    <div class="row">
-        <div class="col-12 d-flex justify-content-center p-2 my-2">
-            <button type="button" class="btn btn-primary"> Resume </button>
+<!-- ------------------------------------------------------resume-----------  -->
+         <div class="row">
+            <div class="col-12 d-flex justify-content-center p-2 my-2">
+               <a href="<%=locals.userData.resume%>" target="_blank" rel="noopener noreferrer"> <button type="button" class="customBTN">My resume </button> </a>
+            </div>
+    
         </div>
 
-    </div>
+</div> <!-- End of template-->
 
 
 
+
+
+
+
+<!-- ------------------------------------------------------footer-----------  -->
     <div class="row header p-1 text-center">
         <div class="col-12">
            Visitor Count : 1
@@ -382,11 +378,13 @@
            <h4>Copyright @GL01</h4> 
         </div>
     </div>
-
+ 
 	<!-- JavaScript Bundle with Popper -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" 
 	integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" 
 	crossorigin="anonymous"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js" ></script>
 	<script src="/js/template.js"></script>
+    
 </body>
 </html>

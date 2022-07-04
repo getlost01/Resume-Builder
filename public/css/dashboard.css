@@ -11,15 +11,15 @@ body {
     transition: var(--tran-05);
 }
 .dark ::selection {
-    background-color: #e4e4e4;
-    color: #323232;
-    text-shadow: 0 0 1px #b0b0b0;
+    background-color: #ddd;
+    color: #222;
+    text-shadow: 0 0 1px #ffffff;
     font-family:monospace;
 }
 ::selection {
-    background-color: #161616;
-    color: #e4e4e4;
-    text-shadow: 0 0 1px #b0b0b0;
+    background-color: #222;
+    color: #ddd;
+    text-shadow: 0 0 1px #000000;
     font-family:monospace;
 }
 textarea::-webkit-scrollbar-thumb{

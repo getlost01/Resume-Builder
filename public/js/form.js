@@ -194,13 +194,6 @@ document.querySelector("#addInfo").addEventListener('click',()=>{
     render();
 })
 
-document.querySelector("#okcheck").addEventListener('click',()=>{
-    if(document.querySelector("#okcheck").checked)
-    document.querySelector("#submitBTN").disabled = false;
-    else
-    document.querySelector("#submitBTN").disabled = true;
-})
-
 
 function render(){
     genArray.forEach((ele,i) => {
@@ -212,3 +205,10 @@ function render(){
      })
     });
 }
+
+document.querySelector("#okcheck").addEventListener('change',()=>{
+    if(document.querySelector("#okcheck").checked)
+    document.querySelector("#submitBTN").disabled = false;
+    else
+    document.querySelector("#submitBTN").disabled = true;
+})

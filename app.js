@@ -43,7 +43,7 @@ app.get('/logout',(req,res)=>{
 
 
 function isloggedIn(req,res,next){
-    req.user?next():res.render('error');
+    req.user?next():res.render('error',{errorName:"User has not logged in, Login now."});
 }
 
 app.get('/dashboard',isloggedIn,async(req,res)=>{
@@ -85,11 +85,11 @@ app.get('/dashboard',isloggedIn,async(req,res)=>{
 
 
 
-app.post('/submit-form',async(req,res)=>{
+app.post('/submit-form',async(req,res,next)=>{
     try{
     const userExists =  await User.findOne({ email:req.user.email});
     if(!userExists){
-        res.render('error');
+        res.render('error',{errorName:"User has not logged in, Login now."});
         return;
      }
      await userExists.updateOne({ name: req.body.name });
@@ -129,3 +129,24 @@ app.post('/dashboard',async(req,res)=>{
         next(error);
 }
 })
+
+app.get('/user/:username', async (req, res, next) => {
+    try {
+      const { username } = req.params
+      console.log(req.ip);
+      const userExists = await User.findOne({ username })
+      if (!userExists) {
+        res.render('error404');
+        return;
+      }
+      if(userExists.jsonData === '{}'){
+        res.render('error',{errorName:"This user have incomplete data / unverified user."});
+        return;
+      }
+      var userData = JSON.parse(userExists.jsonData)
+      res.render('template',{ userData });
+    //   await userExists.updateOne({ count: userExists.count+1 })
+    } catch (error) {
+      next(error)
+    }
+  })
