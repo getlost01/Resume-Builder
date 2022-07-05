@@ -38,23 +38,30 @@
       
             <ul class="menu-links">
               <li class="nav-link">
-                <a href="#">
+                <a href="#formSection" id="dash0">
                   <i class="fa-solid fa-house icon"></i>
                   <span class="text nav-text">Update Details</span>
                 </a>
               </li>
       
               <li class="nav-link">
-                <a href="#">
-                  <i class="fa-solid fa-bell icon"></i>
+                <a href="#analyticSection" id="dash1">
+                  <i class="fa-solid fa-chart-column  icon"></i>
+                  <span class="text nav-text">Analytics</span>
+                </a>
+              </li>
+
+              <li class="nav-link">
+                <a href="#notificationSection" id="dash2">
+                  <i class="fa-solid fa-bullhorn icon"></i>
                   <span class="text nav-text">Notifications</span>
                 </a>
               </li>
-      
+
               <li class="nav-link">
-                <a href="#">
-                  <i class="fa-solid fa-chart-bar icon"></i>
-                  <span class="text nav-text">Analytics</span>
+                <a href="#settingSection" id="dash3">
+                  <i class="fa-solid fa-gear icon"></i>
+                  <span class="text nav-text">Settings</span>
                 </a>
               </li>
    
@@ -90,7 +97,7 @@
       
         
 <!-- ------------------------------------------------------ Form Section ------------------------------------------------------ -->
-        <div class="row formSec hidden " id="formSection">
+        <div class="row formSec " id="formSection">
           <h4 class="">Data Form</h4>
           <% if(locals.emptyData) {%> 
           <h2 style="background-color:#ffc7c7; border-bottom: 1px solid #ff9393; color:#dd0000;font-size:16px; text-align: center; padding: 5px;font-weight: 400;"><i class="fa-solid fa-triangle-exclamation px-2"></i> Please complete your profile details</h2>
@@ -116,8 +123,9 @@
       
                 <div class="col-12 inputStyle col-md-6">
                 <label for="photo"> Your photo<span>*</span> </label>
-                <input   type="url" placeholder="https://image.com/664c5" name="photo" value="<%if(!locals.emptyData){%><%=locals.jsonData.photo%><%}%>" required id="photo">
-                  </div>
+                <!-- <input   type="url" placeholder="https://image.com/664c5" name="photo" value="<%if(!locals.emptyData){%><%=locals.jsonData.photo%><%}%>" required id="photo"> -->
+                <input   type="url" placeholder="https://image.com/664c5" name="photo" value="https://www.pngmart.com/files/21/Account-User-PNG-Transparent.png" required id="photo">       
+                </div>
       
                 <div class="col-12 inputStyle col-md-6">
                 <label for="address"> Your home address<span>*</span> </label>
@@ -545,39 +553,77 @@
           </form>
         </div>
 
-<!-- ------------------------------------------------------ Form Section ------------------------------------------------------ -->
-        <div class="row analyticSec " id="analyticSec">
+<!-- ------------------------------------------------------ Analytic Section ------------------------------------------------------ -->
+        <div class="row analyticSec hidden" id="analyticSection">
           <h4>Analytics</h4>
-            <div class="row">
-              <div class="col-12">
-                <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+          <h2 id="nothing" class="hidden" style="background-color:#ffc7c7; border-bottom: 1px solid #ff9393; color:#dd0000;font-size:16px; text-align: center; padding: 5px;font-weight: 400;"><i class="fa-solid fa-triangle-exclamation px-2"></i> Nobody visit your profile yet</h2>
 
+          <% if(locals.visitorData) {%> 
+            <input type="text" id="visitorDataJson" value="<%= locals.visitorData %>" style="display: none;">
+            <div class="row text-center d-flex justify-content-center">
+              <div class="col-12 col-md-10 p-2 topRow">
+                <div class="topCol">
+                  <h3>Total visitors</h3>
+                  <h1 id="totalVis"></h1>
+                </div>
+                <div class="topCol">
+                  <h3>Unique visitors</h3>
+                  <h1 id="uniVis"></h1>
+              </div>
+              <div class="topCol">
+                <h3>Today's visitors</h3>
+                <h1 id="todayVis"></h1>
+            </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-12">
-                <canvas id="myChart1" style="width:100%;max-width:700px"></canvas>
+            
+              <div class="row d-flex justify-content-center my-2">
+                <div class="col-12 col-md-9 col-lg-5 d-flex justify-content-center m-2">
+                  <canvas id="myChart2" style="width:90%;max-width:600px"></canvas>
 
-              </div>
+                </div>
+
+                <div class="col-12 col-md-9 col-lg-5 d-flex justify-content-center m-2">
+                  <canvas id="myChart3" style="width:90%;max-width:600px"></canvas>
+
+                </div>
+          </div>
+            <div class="row d-flex justify-content-center my-2">
+                  <div class="col-12 col-md-9 col-lg-5 d-flex justify-content-center m-2">
+                    <canvas id="myChart" style="width:90%;max-width:600px"></canvas>
+
+                  </div>
+
+                  <div class="col-12  col-md-9 col-lg-5 d-flex justify-content-center m-2">
+                    <canvas id="myChart1" style="width:90%;max-width:600px"></canvas>
+
+                  </div>
             </div>
-            <div class="row">
-              <div class="col-12">
-                <canvas id="myChart2" style="width:100%;max-width:700px"></canvas>
 
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-12">
-                <canvas id="myChart2" style="width:100%;max-width:700px"></canvas>
-
-              </div>
-            </div>
+            <% }%>
 
 
 
         </div>
 
+<!-- ------------------------------------------------------ Notification Section ------------------------------------------------------ -->
+        <div class="row analyticSec hidden" id="notificationSection">
+          <h4>Notification</h4>
+          <h2 style="background-color:#ffc7c7; border-bottom: 1px solid #ff9393; color:#dd0000;font-size:16px; text-align: center; padding: 5px;font-weight: 400;"><i class="fa-solid fa-triangle-exclamation px-2"></i> Under Construction</h2>
+
+        </div>
+
+<!-- ------------------------------------------------------ Setting Section ------------------------------------------------------ -->
+        <div class="row analyticSec hidden" id="settingSection">
+          <h4>Settings</h4>
+          <h2 style="background-color:#ffc7c7; border-bottom: 1px solid #ff9393; color:#dd0000;font-size:16px; text-align: center; padding: 5px;font-weight: 400;"><i class="fa-solid fa-triangle-exclamation px-2"></i> Under Construction</h2>
+            <div class="row">
+               <div class="col-12">
+
+               </div>
+            </div>
+        </div>        
+<!-- ------------------------------------------------------ The end Section ------------------------------------------------------ -->        
         </div>
       </section>
 

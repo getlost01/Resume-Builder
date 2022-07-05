@@ -27,7 +27,7 @@
         <div class="col-12 header">
             <div class="d-flex justify-content-center">
                 <% if(locals.userData.photo!=""){%>
-                <img src="/images/1654694040063.jpg" alt="" style="width:100px; border-radius: 50%; background-color:aliceblue; border: 2px solid rgb(230, 230, 230);">
+                <img src="https://www.pngmart.com/files/21/Account-User-PNG-Transparent.png" alt="" style="width:100px; border-radius: 50%; background-color:aliceblue; border: 2px solid rgb(230, 230, 230);">
                 <%}else{%>
                 <img src="https://www.pngmart.com/files/21/Account-User-PNG-Transparent.png" alt="" style="width:100px; border-radius: 50%; background-color:aliceblue; border: 2px solid rgb(230, 230, 230);">
                 <% } %> 
@@ -372,9 +372,12 @@
 <!-- ------------------------------------------------------footer-----------  -->
     <div class="row header p-1 text-center">
         <div class="col-12">
-           Visitor Count : 1
+          <% if(locals.visRenderData) {%>   <p class="p-1">Total visitors: <span class="bold600"><%= locals.visRenderData %> </span>&emsp;
+          <% if(locals.uniqRenderData) {%>      Unique visitors: <span class="bold600"><%= locals.uniqRenderData %> <%}%> </span> </p> <%}%>
+
+          <% if(locals.updatetime) {%>   <p class="p-1">Latest update at: <span class="bold600"><%= locals.updatetime %></span></p> <%}%>
         </div>
-        <div class="col-12 p-4">
+        <div class="col-12 p-4 px-2">
            <h4>Copyright @GL01</h4> 
         </div>
     </div>

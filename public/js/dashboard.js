@@ -17,3 +17,15 @@ modeSwitch.addEventListener("click", () => {
     modeText.innerText = "Dark mode";
   }
 });
+
+var sectionArr = ["formSection","analyticSection","notificationSection","settingSection"];
+
+sectionArr.forEach((ele,i) => {
+    var sidebarEle = `dash${i}`;
+    document.querySelector(`#${sidebarEle}`).addEventListener('click',()=>{
+       sectionArr.forEach(id=>{
+            document.querySelector(`#${id}`).classList.add('hidden');
+       })
+       document.querySelector(`#${ele}`).classList.remove('hidden');
+    })
+});

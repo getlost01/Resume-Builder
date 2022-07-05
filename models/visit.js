@@ -6,6 +6,9 @@ const visitorDetail = new Schema({
     email: {type: String,required:true},
     count: {type:Number,required:true,default:0},
     uniqueCount: {type:Number,required:true,default:0},
+    regCount: {type:Number,required:true,default:0},
+    unregCount: {type:Number,required:true,default:0},
+    os : {type: String,required:true},
     weekCount: {type: String,required:true},
     uniqueVistors: {type: String,required:true},
     weeklyUniqueVistors: {type: String,required:true}

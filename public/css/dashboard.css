@@ -10,16 +10,9 @@ body {
     background-color: var(--body-color);
     transition: var(--tran-05);
 }
-.dark ::selection {
-    background-color: #ddd;
-    color: #222;
-    text-shadow: 0 0 1px #ffffff;
-    font-family:monospace;
-}
-::selection {
-    background-color: #222;
-    color: #ddd;
-    text-shadow: 0 0 1px #000000;
+::selection{
+    background-color: rgb(231, 243, 253);
+    color: #004dc0;
     font-family:monospace;
 }
 textarea::-webkit-scrollbar-thumb{
@@ -295,6 +288,6 @@ body.dark .home {
         width: calc(100% - 0px);
     }
     .sidebar ~ .home {
-       opacity: 30%;
+       opacity: 10%;
     }
   }
