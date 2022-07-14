@@ -212,6 +212,6 @@ app.get('/user/:username', async (req, res, next) => {
 
 
 
-//   app.use((err, req, res, next) => {
-//     res.render('error404');
-//   })
+  app.use((err, req, res, next) => {
+    res.render('error404');
+  })
