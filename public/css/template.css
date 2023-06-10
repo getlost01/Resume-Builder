@@ -137,7 +137,7 @@ h4{
 }
 .proDes{
     /* border: 1px solid #777; */
-    box-shadow: 0px 2px 5px #777;
+    box-shadow: 0px 2px 5px var(--shadow-color);
     border-radius: 5px;
     margin: 10px 0;
     padding: 10px;
@@ -205,7 +205,7 @@ h4{
     top: -10px;
     left: 5px;
     /* border: 1px solid #777; */
-    box-shadow: 0px 2px 5px #777;
+    box-shadow: 0px 2px 5px var(--shadow-color);
     background-color: var(--box-color);
     padding: 0 5px;
     border-radius: 5px;
@@ -227,7 +227,7 @@ h4{
 .social{
     padding: 5px;
     /* border: 1px solid #777; */
-    box-shadow: 0px 2px 5px #777;
+    box-shadow: 0px 2px 5px var(--shadow-color);
     background-color: var(--box-color);
     border-radius: 5px;
     margin-right: 10px;
@@ -250,7 +250,7 @@ h4{
     padding: 5px;
     margin: 5px 10px;
     display: block;
-    box-shadow: 0px 2px 5px black;
+    box-shadow: 0px 2px 5px var(--shadow-color);
 }
 .social img:hover{
     transform: scale(1.04);
@@ -261,7 +261,7 @@ h4{
 .skill,.certificates,.honor{
     padding: 5px;
     /* border: 1px solid #777; */
-    box-shadow: 0px 2px 5px #777;
+    box-shadow: 0px 2px 5px var(--shadow-color);
     background-color: var(--box-color);
     border-radius: 5px;
     margin-right: 10px;

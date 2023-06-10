@@ -29,3 +29,6 @@ sectionArr.forEach((ele,i) => {
        document.querySelector(`#${ele}`).classList.remove('hidden');
     })
 });
+
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))

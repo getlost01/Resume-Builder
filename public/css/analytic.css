@@ -1,3 +1,6 @@
+.analyticSec{
+    padding-bottom: 30px;
+}
 .analyticSec h4{
     text-align: center;
     background-color: var(--primary-color);
@@ -11,13 +14,13 @@
 }
 .analyticSec canvas{
     padding: 10px;
-    box-shadow: 0 2px 5px #666;
+    box-shadow: 0 2px 10px var(--shadow-color);
     background-color: white;
     border-radius: 10px;
 }
 .analyticSec .topRow{
     padding: 5px;
-    box-shadow: 0 2px 5px #666;
+    box-shadow: 0 2px 10px var(--shadow-color);
     margin: 10px 0;
     display: flex;
     justify-content: center;

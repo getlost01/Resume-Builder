@@ -32,7 +32,6 @@ ul{
     background: var(--sidebar-color);
     transition: var(--tran-05);
     z-index: 100;
-    border-right: 1px solid #888;
 }
 .sidebar.close {
     width: 90px;
@@ -139,7 +138,7 @@ body.dark .sidebar header .toggle {
     list-style: none;
     height: 100%;
     background-color: transparent;
-    box-shadow: 0 0 3px #777 inset;
+    box-shadow: 0 0 2px #777 inset;
     border: 1px solid transparent;
     display: flex;
     align-items: center;

@@ -20,7 +20,8 @@
 <body class="">
     <nav class="sidebar close">
         <header>
-          <div class="image-text">
+        <a href="/user/<%= locals.username %>" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+          <div class="image-text" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Click to view resume">
             <span class="image">
               <img src="<%= locals.picture %>" alt="">
             </span>
@@ -30,6 +31,7 @@
               <span class="profession"><%= locals.email %></span>
             </div>
           </div>
+        </a>
           <i class="fa-solid fa-angles-right toggle"></i>
         </header>
       
@@ -100,9 +102,9 @@
         <div class="row formSec " id="formSection">
           <h4 class="">Data Form</h4>
           <% if(locals.emptyData) {%> 
-          <h2 style="background-color:#ffc7c7; border-bottom: 1px solid #ff9393; color:#dd0000;font-size:16px; text-align: center; padding: 5px;font-weight: 400;"><i class="fa-solid fa-triangle-exclamation px-2"></i> Please complete your profile details</h2>
+          <h2 style="background-color:#f3e5f5; color:#f44336;font-size:15px; text-align: center; padding: 15px;font-weight: 400;">  Please complete your profile details</h2>
           <%}%>
-          <h2 style="background-color:#c7dcff;border-bottom: 1px solid #7db1ff; color:#0057d9;font-size:16px; text-align: center; padding: 5px;font-weight: 400;"><i class="fa-solid fa-circle-info"></i> Automatic save not possible, so user have to update data.</h2>
+          <h2 style="background-color:#e3f2fd; color:#2079ff;font-size:16px; text-align: center; padding: 15px;font-weight: 400;"> Automatic save not possible, so user have to update data.</h2>
           <form action="/dashboard/preview" class="d-flex justify-content-center" method="post" target="_blank">
       
             <div class="col-12 col-md-10 my-2">
@@ -556,8 +558,7 @@
 <!-- ------------------------------------------------------ Analytic Section ------------------------------------------------------ -->
         <div class="row analyticSec hidden" id="analyticSection">
           <h4>Analytics</h4>
-          <h2 id="nothing" class="hidden" style="background-color:#ffc7c7; border-bottom: 1px solid #ff9393; color:#dd0000;font-size:16px; text-align: center; padding: 5px;font-weight: 400;"><i class="fa-solid fa-triangle-exclamation px-2"></i> Nobody visit your profile yet</h2>
-
+          <h2 id="nothing" class="hidden" style="background-color:#f3e5f5; color:#f44336;font-size:15px; text-align: center; padding: 15px;font-weight: 400;">  Nobody visit your profile yet</h2> 
           <% if(locals.visitorData) {%> 
             <input type="text" id="visitorDataJson" value="<%= locals.visitorData %>" style="display: none;">
             <div class="row text-center d-flex justify-content-center">
@@ -609,19 +610,18 @@
 <!-- ------------------------------------------------------ Notification Section ------------------------------------------------------ -->
         <div class="row analyticSec hidden" id="notificationSection">
           <h4>Notification</h4>
-          <h2 style="background-color:#ffc7c7; border-bottom: 1px solid #ff9393; color:#dd0000;font-size:16px; text-align: center; padding: 5px;font-weight: 400;"><i class="fa-solid fa-triangle-exclamation px-2"></i> Under Construction</h2>
+          <div class="row" style="height: calc(100vh - 5rem); display: flex; justify-content: center; align-items: center;">
+              <img src="./images/comingsoon.png" style="max-width: 600px;">
+          </div>
 
         </div>
 
 <!-- ------------------------------------------------------ Setting Section ------------------------------------------------------ -->
         <div class="row analyticSec hidden" id="settingSection">
           <h4>Settings</h4>
-          <h2 style="background-color:#ffc7c7; border-bottom: 1px solid #ff9393; color:#dd0000;font-size:16px; text-align: center; padding: 5px;font-weight: 400;"><i class="fa-solid fa-triangle-exclamation px-2"></i> Under Construction</h2>
-            <div class="row">
-               <div class="col-12">
-
-               </div>
-            </div>
+          <div class="row" style="height: calc(100vh - 5rem); display: flex; justify-content: center; align-items: center;">
+            <img src="./images/comingsoon.png" style="max-width: 600px;">
+          </div>
         </div>        
 <!-- ------------------------------------------------------ The end Section ------------------------------------------------------ -->        
         </div>

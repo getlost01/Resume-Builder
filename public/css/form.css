@@ -1,14 +1,15 @@
  :root {
     --body-color: #f4f7ff;
-    --box-color: #fff;
-    --primary-color: #000000;
+    --box-color: #f9f9f9;
+    --primary-color: #282828;
     --sidebar-color: #fff;
     --primary-color-light: rgb(255, 255, 255);
     --special-color: #0d6efd;
-    --text-color: #000000;
+    --text-color: #282828;
     --text-color1: #ffffff;
-    --sidebar-color: #f4f7ff;
+    --sidebar-color: #ffffff;
     --toggle-color: #d0d0d0;
+    --shadow-color: #ddd;
    /* ====== Transition ====== */
     --tran-03: all 0.2s ease;
     --tran-03: all 0.3s ease;
@@ -19,24 +20,25 @@
     --body-color: #484848;
     --box-color: #2a2a2a;
     --primary-color: rgb(0, 0, 0);
-    --text-color: #e8e8e8;
-    --text-color1: #e8e8e8;
+    --text-color: #ccc;
+    --text-color1: #ccc;
     --sidebar-color: #242526;
     --primary-color-light: #3a3b3c;
     --toggle-color: #fff;
+    --shadow-color: transparent;
+    --special-color: #2079ff;
 }
 ::-webkit-scrollbar{
     width: 8px;
 }
 ::-webkit-scrollbar-track{
-    background: transparent;
+    background: #c8deff;;
 }
 ::-webkit-scrollbar-thumb{
     background: var(--special-color);
-    border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover{
-    background-color: rgb(255, 85, 0);
+    background-color: #2079ff;
 }
 .formSec ::-webkit-calendar-picker-indicator {
     background-color: white;
@@ -55,7 +57,6 @@
     background-color: var(--primary-color);
     padding: 10px;
     color: var(--text-color1);
-    border: 1px solid #888;
     border-top: 0px;
     position: sticky;
     top: 0;
@@ -69,7 +70,7 @@
 }
 
 .formSec .titleBox h6{
-    padding: 8px 10px;
+    padding: 10px 15px;
     border-radius: 20px;
     background-color: var(--special-color);
     width:max-content;
@@ -78,12 +79,12 @@
 }
 .formSec .titleBox h6 i{
     background-color: #ffffff;
-    color: #000000;
+    color: #282828;
     padding: 5px 6px;
     border-radius: 50%;
     margin-left: 10px;
     cursor: pointer;
-    box-shadow: 0 1px 2px rgb(0, 0, 0);
+    box-shadow: 0 1px 2px var(--shadow-color);
     transition: 0.3s all ease;
 }
 .formSec .titleBox h6 i:hover{
@@ -143,7 +144,6 @@
 }
 
 .formSec .addDetail{
-    border-bottom: 1px solid #888;
     padding: 10px 20px;
     background-color: var(--primary-color);
     display: flex; 
@@ -160,7 +160,7 @@
     border-radius: 15px;
     overflow: hidden;
     background-color: var(--box-color);
-    box-shadow: 0px 2px 5px #888;
+    box-shadow: 0px 2px 5px var(--shadow-color);
 }
 .formSec input:invalid,.formSec textarea:invalid{
     border-right: 4px solid rgb(228, 66, 38);
@@ -187,11 +187,10 @@
     text-align: center;
     border: 1px solid transparent;
     border-radius: 5px;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: color .25s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 .formSec input[type="submit"]:hover ,.formSec .btnAdd:hover {
     color: #fff;
-    background-color: #0083e1;
     border:1px solid #ffffff;
     transform: scale(1.04);
 }
