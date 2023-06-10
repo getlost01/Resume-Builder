@@ -63,6 +63,7 @@ app.get('/dashboard',isloggedIn,async(req,res)=>{
             given_name : req.user.given_name,
             jsonData: JSON.parse(userExists.jsonData),
             visitorData: JSON.stringify(visitorDetails),
+            username: userExists.username, 
             emptyData
         });
         return;
@@ -210,8 +211,10 @@ app.get('/user/:username', async (req, res, next) => {
   })
 
 
-
-
   app.use((err, req, res, next) => {
     res.render('error404');
   })
+
+  app.get('*', (req, res, next) => {
+    res.render('error404');
+  });
